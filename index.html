@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SANGOO - Hemat Pangkal Kaya, Sangoo Pangkal Bahagia</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sangoo adalah aplikasi pencatat keuangan pribadi hyper-social yang playful untuk anak muda. Catat sangu harian, patungan tanpa canggung, dan capai target finansial bareng sahabat!"/>
+    <meta name="keywords" content="Sangoo, social finance, pencatat keuangan, hemat, aplikasi keuangan anak muda, brutalism, neobrutalism, budget tracker"/>
+    <meta name="author" content="Sangoo Team"/>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="SANGOO - Hemat Pangkal Kaya, Sangoo Pangkal Bahagia"/>
+    <meta property="og:description" content="Atur pengeluaran harianmu lebih seru dengan gaya modern. Catat, bagi, dan pantau uang saku bersama komunitas tanpa ribet."/>
+    <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuCLNZ_tn62JyfYGM7L8gSCEUEx1cRmR9SBzKsJuc09PVNel--GmGHGIwAqSORHYPlTx7xaGWi4DpSROedTKt-yp8WBCYVjsaOja75jlyzsbFIB4Vg5wtojz1oshJ8OLOcRSEhjcHdmKzabsuWft6z-0JlZu4Z3p2wpJn2MRp7MP8FKe7bSRFAyB6PSG-3kCVBWj3RryMP30g8laH6P9L5UXKSnWWeKRYRqnYEUcbGvt25bBUR2hzDKElK1VOEbMzpKLyiEvTl4pKdM"/>
+    
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Tailwind Custom Configuration -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              // Custom Neobrutalism Design System Tokens
+              "surface": "#f9f9f9",
+              "on-surface": "#1b1b1b",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f3f3f3",
+              "surface-container": "#eeeeee",
+              "surface-container-high": "#e8e8e8",
+              "surface-container-highest": "#e2e2e2",
+              "primary-container": "#ffd600", // Electric Yellow
+              "on-primary-container": "#705d00",
+              "primary": "#705d00",
+              "secondary": "#b70052", // Vibrant Pink
+              "secondary-container": "#e50069",
+              "on-secondary-container": "#fffbff",
+              "tertiary": "#00629e", // Electric Blue
+              "tertiary-container": "#bedcff",
+              "on-tertiary-container": "#00629f",
+              "error": "#ba1a1a",
+              "primary-fixed": "#ffe170",
+              "primary-fixed-dim": "#e9c400",
+              "secondary-fixed": "#ffd9df",
+              "secondary-fixed-dim": "#ffb1c1",
+              "tertiary-fixed": "#cfe5ff",
+              "tertiary-fixed-dim": "#9acbff",
+              "lime-success": "#10b981" // Custom success lime green
+            },
+            spacing: {
+              "unit": "8px",
+              "stack-lg": "32px",
+              "margin-mobile": "20px",
+              "margin-desktop": "40px",
+              "stack-sm": "8px",
+              "stack-md": "16px",
+              "gutter": "16px"
+            },
+            fontFamily: {
+              lexend: ["Lexend", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Neobrutalist Base & Utilities Stylesheet -->
+    <style>
+        /* Neobrutalism Borders & Shadows */
+        .border-neobrutalism {
+            border: 4px solid #000000 !important;
+        }
+        .border-neobrutalism-thin {
+            border: 2px solid #000000 !important;
+        }
+        .neobrutalism-shadow {
+            box-shadow: 8px 8px 0px 0px #000000;
+        }
+        .neobrutalism-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .neobrutalism-shadow-pink {
+            box-shadow: 8px 8px 0px 0px #b70052;
+        }
+        .neobrutalism-shadow-blue {
+            box-shadow: 8px 8px 0px 0px #00629e;
+        }
+        
+        /* Interactive Spring Pressed States */
+        .neobrutalism-press {
+            transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .neobrutalism-press:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px 0px #000000;
+        }
+        .neobrutalism-press:active {
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px 0px #000000;
+        }
+        
+        .neobrutalism-press-sm {
+            transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .neobrutalism-press-sm:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 5px 5px 0px 0px #000000;
+        }
+        .neobrutalism-press-sm:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px #000000;
+        }
+
+        /* Body & Layout defaults */
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Custom Scrollbar for Retro Aesthetic */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+            border-left: 4px solid #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffd600;
+            border: 4px solid #000000;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b70052;
+        }
+
+        /* Infinite Marquee Keyframe */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Float Micro-animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Sparkle Confetti Effects */
+        .confetti-particle {
+            position: absolute;
+            pointer-events: none;
+            width: 10px;
+            height: 10px;
+            z-index: 100;
+        }
+
+        /* Phone Screen Transitions */
+        .phone-screen {
+            transition: opacity 0.2s ease-in-out, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen relative overflow-x-hidden">
+
+    <!-- Toast Notification (Neobrutalist) -->
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-primary-container text-on-surface border-neobrutalism px-6 py-4 font-bold neobrutalism-shadow z-[9999] opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined font-black">check_circle</span>
+            <span id="toast-message">Tautan berhasil disalin! 🚀</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="bg-surface sticky top-0 z-50 border-b-4 border-on-surface">
+        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+            
+            <!-- Logo & Brand -->
+            <a href="#" class="flex items-center gap-stack-md group focus:outline-none">
+                <div class="border-2 border-black bg-white p-1 neobrutalism-shadow-sm group-hover:rotate-6 transition-transform duration-150">
+                    <img alt="SANGOO Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLNZ_tn62JyfYGM7L8gSCEUEx1cRmR9SBzKsJuc09PVNel--GmGHGIwAqSORHYPlTx7xaGWi4DpSROedTKt-yp8WBCYVjsaOja75jlyzsbFIB4Vg5wtojz1oshJ8OLOcRSEhjcHdmKzabsuWft6z-0JlZu4Z3p2wpJn2MRp7MP8FKe7bSRFAyB6PSG-3kCVBWj3RryMP30g8laH6P9L5UXKSnWWeKRYRqnYEUcbGvt25bBUR2hzDKElK1VOEbMzpKLyiEvTl4pKdM"/>
+                </div>
+                <span class="text-headline-md font-black tracking-tighter text-on-surface uppercase select-none">SANGOO</span>
+            </a>
+
+            <!-- Nav Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-on-surface font-bold hover:bg-primary-container px-3 py-1 border-2 border-transparent hover:border-black transition-all select-none" href="#features">Fitur</a>
+                <a class="text-on-surface font-bold hover:bg-secondary-fixed px-3 py-1 border-2 border-transparent hover:border-black transition-all select-none" href="#simulator">Simulator App</a>
+                <a class="text-on-surface font-bold hover:bg-tertiary-fixed px-3 py-1 border-2 border-transparent hover:border-black transition-all select-none" href="#splitbill">Patungan Widget</a>
+                <a class="text-on-surface font-bold hover:bg-primary-container px-3 py-1 border-2 border-transparent hover:border-black transition-all select-none" href="#faq">FAQ</a>
+            </div>
+
+            <!-- Download Button in Nav -->
+            <div class="flex items-center gap-4">
+                <a href="#download" class="bg-primary-container text-on-surface border-neobrutalism-thin px-5 py-2 font-black uppercase text-sm neobrutalism-press-sm select-none">
+                    Download APK
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden p-2 border-neobrutalism-thin bg-white text-on-surface neobrutalism-shadow-sm focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined block" id="menu-icon">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden border-t-4 border-on-surface bg-surface w-full py-6 px-margin-mobile flex flex-col gap-4 md:hidden">
+            <a class="text-on-surface font-black uppercase text-lg border-neobrutalism p-4 bg-white neobrutalism-shadow-sm block" href="#features">⚡ Fitur Utama</a>
+            <a class="text-on-surface font-black uppercase text-lg border-neobrutalism p-4 bg-primary-fixed neobrutalism-shadow-sm block" href="#simulator">📱 Simulator App</a>
+            <a class="text-on-surface font-black uppercase text-lg border-neobrutalism p-4 bg-tertiary-fixed neobrutalism-shadow-sm block" href="#splitbill">🍕 Kalkulator Patungan</a>
+            <a class="text-on-surface font-black uppercase text-lg border-neobrutalism p-4 bg-secondary-fixed neobrutalism-shadow-sm block" href="#faq">❓ Tanya Jawab</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-primary-container border-b-4 border-on-surface py-20 relative overflow-hidden">
+        
+        <!-- Background Elements (Neobrutalist grids and graphics) -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none select-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Hero Description -->
+            <div class="flex flex-col gap-6 lg:col-span-7">
+                <div class="inline-block bg-secondary text-white border-neobrutalism px-4 py-1.5 font-black uppercase text-sm w-fit rotate-[-2deg] select-none animate-bounce">
+                    🚀 #1 Social Finance App untuk Gen-Z
+                </div>
+                
+                <h1 class="font-black text-5xl md:text-6xl text-on-surface leading-tight uppercase tracking-tight">
+                    Hemat Pangkal Kaya,<br/>
+                    <span class="bg-white text-secondary px-4 py-1 my-2 border-neobrutalism inline-block rotate-[1deg] shadow-[4px_4px_0px_#000]">Sangoo</span><br/>
+                    Pangkal Bahagia!
+                </h1>
+                
+                <p class="font-semibold text-lg md:text-xl text-on-surface max-w-xl leading-relaxed">
+                    Atur uang saku harianmu dengan cara yang seru! Catat pengeluaran secepat kilat, pantau limit jajan, dan nikmati serunya tantangan menabung bareng teman tanpa drama.
+                </p>
+                
+                <!-- CTA Action Buttons -->
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <button onclick="triggerConfettiAndGo('#download')" class="bg-secondary text-white border-neobrutalism px-8 py-4 font-black text-lg neobrutalism-press uppercase tracking-tight flex items-center gap-3">
+                        <span class="material-symbols-outlined font-black">download</span>
+                        Download APK
+                    </button>
+                    <a href="#simulator" class="bg-white text-on-surface border-neobrutalism px-8 py-4 font-black text-lg neobrutalism-press uppercase tracking-tight flex items-center gap-3 text-center">
+                        <span class="material-symbols-outlined font-black">play_circle</span>
+                        Coba Simulator
+                    </a>
+                </div>
+
+                <!-- App stats tickers -->
+                <div class="grid grid-cols-3 gap-4 mt-6 border-neobrutalism bg-white p-4 max-w-lg neobrutalism-shadow-sm select-none">
+                    <div class="text-center border-r-2 border-black">
+                        <p class="font-black text-2xl md:text-3xl text-secondary" id="downloads-ticker">14.8K+</p>
+                        <p class="font-bold text-xs uppercase opacity-85">Unduhan</p>
+                    </div>
+                    <div class="text-center border-r-2 border-black">
+                        <p class="font-black text-2xl md:text-3xl text-tertiary">98%</p>
+                        <p class="font-bold text-xs uppercase opacity-85">Sobat Hemat</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-black text-2xl md:text-3xl text-lime-success">Rp 0</p>
+                        <p class="font-bold text-xs uppercase opacity-85">Bunga/Riba</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Mockup Display -->
+            <div class="lg:col-span-5 relative flex justify-center items-center">
+                <div class="absolute w-[95%] h-[95%] bg-tertiary border-neobrutalism rotate-[-3deg] -z-10 translate-x-4 translate-y-4"></div>
+                <div class="bg-white p-4 border-neobrutalism neobrutalism-shadow max-w-md w-full relative">
+                    <!-- Top mockup label -->
+                    <div class="absolute -top-5 -right-5 bg-primary-container text-black font-black uppercase text-xs border-neobrutalism px-3 py-1.5 rotate-[8deg] z-20">
+                        Main Screen 📱
+                    </div>
+                    <img alt="Sangoo App Dashboard" class="w-full object-cover border-2 border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvoylHRUyEEgADiAKqO8a79y4CR0IiwgF8MMTg9BQf6R21up_XfhJi_MnVCdpFn76vUFHq5TQ86j9zneUsoQYf3YdbSIb3y_IqMFVnYYHj7WmvZ1fEYhL1bCuoFYYQTrV2bL88SJZToGjw8OfvnxkKRc68J9uWGC7hJ-_N8433sHRF86sgsz8ThKB_dfU9u_v0TPicyuKSgGOV1l12-sqcnAxc-Xi4HjvYElyNZ7PYypjhljhyTom9zmAMfMtaphlBOwgugb2o_l0"/>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Scrolling Text Marquee -->
+    <div class="bg-on-surface text-white py-4 overflow-hidden border-b-4 border-black select-none">
+        <div class="animate-marquee whitespace-nowrap flex gap-12 font-black uppercase tracking-widest text-sm md:text-base">
+            <span>⚡ SANGU SOCIAL FINANCE</span>
+            <span>🔥 NO ADMIN FEES</span>
+            <span>👾 PLAYFUL PERSONAL FINANCE</span>
+            <span>🤝 BY YOUNG ADULTS FOR YOUNG ADULTS</span>
+            <span>🎯 ATUR BUDGET TANPA DRAMA</span>
+            <span>💡 100% OFFLINE-FIRST CAPABILITY</span>
+            <span>💥 INTEGRASI SUPABASE REALTIME</span>
+            
+            <span>⚡ SANGU SOCIAL FINANCE</span>
+            <span>🔥 NO ADMIN FEES</span>
+            <span>👾 PLAYFUL PERSONAL FINANCE</span>
+            <span>🤝 BY YOUNG ADULTS FOR YOUNG ADULTS</span>
+            <span>🎯 ATUR BUDGET TANPA DRAMA</span>
+            <span>💡 100% OFFLINE-FIRST CAPABILITY</span>
+            <span>💥 INTEGRASI SUPABASE REALTIME</span>
+        </div>
+    </div>
+
+    <!-- Feature Grid Section -->
+    <section id="features" class="py-24 bg-surface-container-lowest border-b-4 border-black">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+            
+            <div class="mb-16 text-center max-w-2xl mx-auto">
+                <span class="bg-primary-container text-black px-4 py-2 border-neobrutalism-thin font-black uppercase tracking-wider text-sm select-none">
+                    Kenapa Sangoo Beda?
+                </span>
+                <h2 class="font-black text-4xl md:text-5xl uppercase mt-6 tracking-tight">
+                    Kelola Keuangan Tanpa Kehilangan Vibe!
+                </h2>
+                <p class="font-semibold text-on-surface opacity-80 mt-4 text-lg">
+                    Kami membuang tampilan tabel akuntansi jadul yang membosankan dan menggantinya dengan layout penuh warna, berani, dan fungsional.
+                </p>
+            </div>
+
+            <!-- Bento Box Style Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Catat Kilat -->
+                <div class="bg-white p-8 border-neobrutalism neobrutalism-press flex flex-col justify-between gap-6 min-h-[320px]">
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-secondary-fixed p-4 w-fit border-neobrutalism-thin text-secondary font-black rotate-[-3deg]">
+                            <span class="material-symbols-outlined text-4xl block" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                        </div>
+                        <h3 class="font-black text-2xl uppercase tracking-tight">Catat Kilat (NLP)</h3>
+                        <p class="font-medium text-base text-on-surface opacity-80 leading-relaxed">
+                            Cukup ketik dengan bahasa santaimu seperti <strong class="bg-primary-fixed px-1 font-bold">"25rb jajan bakso"</strong>. Sangoo akan otomatis membaca nominal, kategori, dan mencatatnya dalam 1 detik!
+                        </p>
+                    </div>
+                    <a href="#simulator" class="text-secondary font-black text-sm uppercase underline tracking-wider hover:opacity-80 flex items-center gap-2">
+                        Cobain di Simulator <span class="material-symbols-outlined text-sm font-black">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Card 2: Grup Sosial -->
+                <div class="bg-tertiary-container p-8 border-neobrutalism neobrutalism-press flex flex-col justify-between gap-6 min-h-[320px]">
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-white p-4 w-fit border-neobrutalism-thin text-tertiary font-black rotate-[2deg]">
+                            <span class="material-symbols-outlined text-4xl block" style="font-variation-settings: 'FILL' 1;">group</span>
+                        </div>
+                        <h3 class="font-black text-2xl uppercase tracking-tight">Grup Sosial (Patungan)</h3>
+                        <p class="font-medium text-base text-on-surface opacity-80 leading-relaxed">
+                            Undang temen tongkronganmu ke dalam grup. Di sini kamu bisa saling transparan ngingetin budget hemat, request patungan makan, dan colek temen yang belum bayar utang.
+                        </p>
+                    </div>
+                    <a href="#splitbill" class="text-tertiary font-black text-sm uppercase underline tracking-wider hover:opacity-80 flex items-center gap-2">
+                        Hitung Patungan <span class="material-symbols-outlined text-sm font-black">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Card 3: Batas Harian -->
+                <div class="bg-secondary-container p-8 border-neobrutalism neobrutalism-press text-white flex flex-col justify-between gap-6 min-h-[320px] shadow-[8px_8px_0px_#000000]">
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-white text-secondary-container p-4 w-fit border-neobrutalism-thin rotate-[-1deg]">
+                            <span class="material-symbols-outlined text-4xl block" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+                        </div>
+                        <h3 class="font-black text-2xl uppercase tracking-tight">Colekan Batas Harian</h3>
+                        <p class="font-medium text-base opacity-90 leading-relaxed">
+                            Atur batas uang jajan harianmu. Sangoo akan mengirim notifikasi 'colekan' kocak nan tegas jika pengeluaranmu hari ini sudah mulai melewati batas aman!
+                        </p>
+                    </div>
+                    <a href="#simulator" class="text-primary-container font-black text-sm uppercase underline tracking-wider hover:opacity-80 flex items-center gap-2">
+                        Atur Slider Limit <span class="material-symbols-outlined text-sm font-black">arrow_forward</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- THE LIVE APP SIMULATOR (JAW-DROPPING INTERACTION) -->
+    <section id="simulator" class="py-24 bg-white border-b-4 border-black">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+            
+            <div class="mb-16 text-center max-w-2xl mx-auto">
+                <span class="bg-secondary text-white px-4 py-2 border-neobrutalism font-black uppercase tracking-wider text-sm select-none rotate-[-1deg] inline-block">
+                    Coba Langsung ⚡ Live Demo
+                </span>
+                <h2 class="font-black text-4xl md:text-5xl uppercase mt-6 tracking-tight">
+                    Simulasi Aplikasi Sangoo
+                </h2>
+                <p class="font-semibold text-on-surface opacity-80 mt-4 text-lg">
+                    Gunakan tombol kontrol di sebelah kiri untuk berinteraksi langsung dengan virtual smartphone Sangoo di sebelah kanan. Rasakan sensasi neobrutalist UI yang super taktil!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                
+                <!-- Left Column: Simulator Controls (7 cols) -->
+                <div class="lg:col-span-7 flex flex-col gap-6 justify-between">
+                    
+                    <!-- Control Box 1: Quick Add Input Simulator -->
+                    <div class="border-neobrutalism bg-primary-fixed p-6 neobrutalism-shadow-sm flex flex-col gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined font-black text-secondary">bolt</span>
+                            <h4 class="font-black text-xl uppercase tracking-tight text-on-surface">1. Catat Transaksi Instan (Natural Language)</h4>
+                        </div>
+                        <p class="font-medium text-sm text-on-surface opacity-90">
+                            Coba ketik nominal dan deskripsi jajanmu (Contoh: <code class="bg-white border border-black px-1 font-bold">20k kopi susu</code> atau <code class="bg-white border border-black px-1 font-bold">50rb tiket bioskop</code>) lalu tekan tombol Catat!
+                        </p>
+                        <div class="flex gap-2">
+                            <input type="text" id="sim-input" placeholder="Tulis jajanmu disini..." class="flex-1 bg-white border-2 border-black p-3 font-bold text-on-surface focus:outline-none focus:bg-tertiary-fixed placeholder:text-on-surface-variant/60 outline-none" style="border-radius: 0px;" />
+                            <button onclick="handleSimulatorAdd()" class="bg-white text-on-surface border-neobrutalism-thin hover:bg-on-surface hover:text-white px-6 font-black uppercase neobrutalism-press-sm">
+                                Catat!
+                            </button>
+                        </div>
+                        <!-- Preset shortcuts for fast testing -->
+                        <div class="flex flex-wrap gap-2 items-center mt-1">
+                            <span class="text-xs font-black uppercase">Preset Cepat:</span>
+                            <button onclick="runPreset('15rb es teh')" class="bg-white text-xs border-neobrutalism-thin px-2.5 py-1 font-bold hover:bg-secondary-fixed">15rb es teh 🥤</button>
+                            <button onclick="runPreset('25k ramen')" class="bg-white text-xs border-neobrutalism-thin px-2.5 py-1 font-bold hover:bg-tertiary-fixed">25k ramen 🍜</button>
+                            <button onclick="runPreset('8k parkir')" class="bg-white text-xs border-neobrutalism-thin px-2.5 py-1 font-bold hover:bg-primary-container">8k parkir 🚗</button>
+                        </div>
+                    </div>
+
+                    <!-- Control Box 2: Budget Controller -->
+                    <div class="border-neobrutalism bg-tertiary-container p-6 neobrutalism-shadow-sm flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined font-black text-tertiary">tune</span>
+                                <h4 class="font-black text-xl uppercase tracking-tight text-on-surface">2. Limit Sangu Harian</h4>
+                            </div>
+                            <span id="slider-label" class="bg-white border-neobrutalism-thin px-2.5 py-1 font-black text-sm">Rp 75.000</span>
+                        </div>
+                        <p class="font-medium text-sm text-on-surface opacity-90">
+                            Geser slider untuk menaikkan/menurunkan limit harianmu. Perhatikan warna bar pada virtual screen berubah sesuai sisa budget kamu!
+                        </p>
+                        <input type="range" id="sim-budget-slider" min="20000" max="150000" step="5000" value="75000" oninput="handleSliderChange(this.value)" class="w-full h-3 bg-white border-2 border-black appearance-none cursor-pointer accent-secondary" style="border-radius: 0px;" />
+                    </div>
+
+                    <!-- Control Box 3: Social & Avatar Features -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <!-- Poke/Nudge -->
+                        <div class="border-neobrutalism bg-white p-5 neobrutalism-shadow-sm flex flex-col justify-between gap-3">
+                            <h4 class="font-black text-base uppercase tracking-tight">3. Colek Teman Hemat</h4>
+                            <p class="text-xs font-semibold opacity-80">Grup 'Nasi Padang' butuh motivasi. Kirim colekan hemat ke Hanifa lewat simulasi ini!</p>
+                            <button onclick="triggerSimPoke()" class="w-full bg-secondary text-white font-black py-2.5 border-neobrutalism-thin text-xs uppercase neobrutalism-press-sm tracking-wider">
+                                👉 Colek Hanifa!
+                            </button>
+                        </div>
+
+                        <!-- Change avatar -->
+                        <div class="border-neobrutalism bg-white p-5 neobrutalism-shadow-sm flex flex-col justify-between gap-3">
+                            <h4 class="font-black text-base uppercase tracking-tight">4. Ganti Avatar</h4>
+                            <p class="text-xs font-semibold opacity-80">Ganti avatar profil virtualmu untuk melihat penyesuaian visual instan.</p>
+                            <div class="flex gap-2 justify-between">
+                                <button onclick="changeSimAvatar(1)" class="w-8 h-8 rounded-full bg-secondary border-2 border-black flex items-center justify-center font-bold text-white text-xs hover:scale-110 active:scale-95 transition-transform" title="Avatar 1">🧑‍💻</button>
+                                <button onclick="changeSimAvatar(2)" class="w-8 h-8 rounded-full bg-tertiary border-2 border-black flex items-center justify-center font-bold text-white text-xs hover:scale-110 active:scale-95 transition-transform" title="Avatar 2">🐱</button>
+                                <button onclick="changeSimAvatar(3)" class="w-8 h-8 rounded-full bg-primary-container border-2 border-black flex items-center justify-center font-bold text-black text-xs hover:scale-110 active:scale-95 transition-transform" title="Avatar 3">🚀</button>
+                                <button onclick="changeSimAvatar(4)" class="w-8 h-8 rounded-full bg-lime-success border-2 border-black flex items-center justify-center font-bold text-white text-xs hover:scale-110 active:scale-95 transition-transform" title="Avatar 4">🦊</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Interactive Phone Mockup (5 cols) -->
+                <div class="lg:col-span-5 flex justify-center items-center">
+                    
+                    <!-- Virtual Phone Container -->
+                    <div class="w-[325px] h-[580px] bg-white border-neobrutalism neobrutalism-shadow flex flex-col relative overflow-hidden select-none">
+                        
+                        <!-- Phone Notch & Status Bar -->
+                        <div class="bg-black text-white h-7 flex justify-between items-center px-4 text-[10px] font-black tracking-widest relative">
+                            <!-- Left: Virtual Time -->
+                            <span id="phone-time">09:41</span>
+                            <!-- Center Notch -->
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-black w-24 h-4 rounded-b-lg border-x border-b border-white/20"></div>
+                            <!-- Right: Status Icons -->
+                            <div class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[10px]">wifi</span>
+                                <span class="material-symbols-outlined text-[10px]">signal_cellular_alt</span>
+                                <span class="material-symbols-outlined text-[10px]">battery_full</span>
+                            </div>
+                        </div>
+
+                        <!-- Phone App Bar (Header inside app) -->
+                        <div class="border-b-2 border-black px-4 py-3 flex justify-between items-center bg-surface-container-lowest">
+                            <div class="flex items-center gap-2">
+                                <img alt="Logo" class="h-6 w-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLNZ_tn62JyfYGM7L8gSCEUEx1cRmR9SBzKsJuc09PVNel--GmGHGIwAqSORHYPlTx7xaGWi4DpSROedTKt-yp8WBCYVjsaOja75jlyzsbFIB4Vg5wtojz1oshJ8OLOcRSEhjcHdmKzabsuWft6z-0JlZu4Z3p2wpJn2MRp7MP8FKe7bSRFAyB6PSG-3kCVBWj3RryMP30g8laH6P9L5UXKSnWWeKRYRqnYEUcbGvt25bBUR2hzDKElK1VOEbMzpKLyiEvTl4pKdM"/>
+                                <span class="font-black text-sm tracking-tight uppercase">Sangoo</span>
+                            </div>
+                            
+                            <!-- Mini Profile Badge -->
+                            <div class="flex items-center gap-2">
+                                <div class="bg-primary-container px-1.5 py-0.5 border border-black font-black text-[9px] uppercase tracking-wider">Level 3</div>
+                                <div id="phone-avatar-display" class="w-7 h-7 rounded-full bg-secondary border border-black flex items-center justify-center font-bold text-sm text-white">🧑‍💻</div>
+                            </div>
+                        </div>
+
+                        <!-- Phone Live Action Banner (Pokes/Notifications) -->
+                        <div id="phone-banner" class="absolute top-[60px] left-3 right-3 bg-secondary-fixed text-black border-2 border-black p-2 z-30 transform -translate-y-24 opacity-0 transition-all duration-300 font-bold text-[11px] neobrutalism-shadow-sm flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm font-black text-secondary">celebration</span>
+                            <span id="phone-banner-text">Mencolek Hanifa! 👉</span>
+                        </div>
+
+                        <!-- Virtual App Screen Content (Scrollable Area) -->
+                        <div class="flex-1 overflow-y-auto bg-surface p-3 flex flex-col gap-3.5 relative" id="phone-screen-area">
+                            
+                            <!-- TAB 1: DASHBOARD (Active by default) -->
+                            <div id="tab-dashboard-content" class="phone-screen flex flex-col gap-3.5">
+                                
+                                <!-- Balance Card -->
+                                <div class="bg-primary-container p-4 border-2 border-black neobrutalism-shadow-sm relative overflow-hidden">
+                                    <div class="absolute -right-3 -bottom-3 text-on-primary-container/10 font-black text-6xl">S</div>
+                                    <p class="text-[10px] font-black uppercase text-on-primary-container/80 tracking-wider">Sangu Saya 💰</p>
+                                    <p id="phone-balance" class="text-2xl font-black text-on-surface tracking-tight mt-1">Rp 350.000</p>
+                                    <div class="flex justify-between items-center mt-3 pt-2.5 border-t border-black/10 text-[9px] font-black uppercase">
+                                        <span>Grup Aktif: 2</span>
+                                        <span class="text-secondary">Hemat Streak: 5 Hari 🔥</span>
+                                    </div>
+                                </div>
+
+                                <!-- Budget Limit Progress Indicator -->
+                                <div class="bg-white p-3 border-2 border-black flex flex-col gap-2">
+                                    <div class="flex justify-between items-center text-[10px] font-black uppercase">
+                                        <span>Jajan Hari Ini 📊</span>
+                                        <span id="phone-budget-text">Rp 40.000 / Rp 75.000</span>
+                                    </div>
+                                    <!-- Progress Bar Container -->
+                                    <div class="w-full h-3.5 bg-surface border border-black overflow-hidden relative">
+                                        <div id="phone-budget-bar" class="h-full bg-lime-success border-r border-black transition-all duration-300" style="width: 53.3%;"></div>
+                                    </div>
+                                    <!-- Dynamic warning status -->
+                                    <p id="phone-budget-warning" class="text-[9px] font-bold text-lime-success uppercase flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[10px] font-black">check_circle</span> Budget aman sentosa!
+                                    </p>
+                                </div>
+
+                                <!-- Quick Stats / Activity list -->
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-[10px] font-black uppercase tracking-wider">Jurnal Transaksi 📝</span>
+                                        <span class="text-[9px] font-black uppercase text-secondary">Lihat Semua</span>
+                                    </div>
+
+                                    <!-- Live updated transaction items -->
+                                    <div id="phone-transactions-list" class="flex flex-col gap-2">
+                                        <!-- Item 1 -->
+                                        <div class="bg-white border-2 border-black p-2 flex justify-between items-center text-xs">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-7 h-7 bg-tertiary-fixed border border-black flex items-center justify-center font-bold">🍔</div>
+                                                <div>
+                                                    <p class="font-black text-[11px]">Makan Siang</p>
+                                                    <p class="text-[9px] opacity-60">Makanan & Minuman</p>
+                                                </div>
+                                            </div>
+                                            <span class="font-black text-error text-[11px]">-Rp 25.000</span>
+                                        </div>
+                                        <!-- Item 2 -->
+                                        <div class="bg-white border-2 border-black p-2 flex justify-between items-center text-xs">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-7 h-7 bg-primary-fixed border border-black flex items-center justify-center font-bold">☕</div>
+                                                <div>
+                                                    <p class="font-black text-[11px]">Kopi Susu</p>
+                                                    <p class="text-[9px] opacity-60">Gaya Hidup</p>
+                                                </div>
+                                            </div>
+                                            <span class="font-black text-error text-[11px]">-Rp 15.000</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- TAB 2: SOCIAL FEED (Hidden by default) -->
+                            <div id="tab-social-content" class="phone-screen hidden flex flex-col gap-3.5">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-black uppercase tracking-wider">Feed Sosial Keuangan 🤝</span>
+                                    <span class="bg-secondary text-white px-2 py-0.5 border border-black text-[8px] font-black uppercase">Live</span>
+                                </div>
+
+                                <!-- Feed Card 1 -->
+                                <div class="bg-white border-2 border-black neobrutalism-shadow-sm">
+                                    <div class="bg-secondary text-white p-2 border-b-2 border-black flex justify-between items-center text-[10px] font-black uppercase">
+                                        <span>Grup: Misi Kaya 🎯</span>
+                                        <span>Baru Saja</span>
+                                    </div>
+                                    <div class="p-3">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <div class="w-6 h-6 rounded-full bg-tertiary border border-black flex items-center justify-center text-[10px] text-white">👩</div>
+                                            <p class="font-black text-[10px]">Hanifa</p>
+                                        </div>
+                                        <p class="text-[11px] font-medium leading-normal">
+                                            "Berhasil hemat jajan hari ini! Cuma abis 20rb buat nasi padang. Target nabung keyboard makin deket! 🚀"
+                                        </p>
+                                        <div class="mt-3 pt-2 border-t border-black/5 flex justify-between items-center">
+                                            <span class="bg-primary-container px-2 py-0.5 border border-black text-[8px] font-black">#HematDay</span>
+                                            <button onclick="reactToFeedPost(this)" class="bg-surface border border-black px-2 py-0.5 font-black text-[8px] uppercase hover:bg-secondary-fixed active:scale-90 transition-transform">
+                                                👍 <span class="likes-count">4</span> Likes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Feed Card 2 -->
+                                <div class="bg-white border-2 border-black neobrutalism-shadow-sm">
+                                    <div class="bg-tertiary text-white p-2 border-b-2 border-black flex justify-between items-center text-[10px] font-black uppercase">
+                                        <span>Patungan Makan 🍕</span>
+                                        <span>2 Jam Lalu</span>
+                                    </div>
+                                    <div class="p-3">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <div class="w-6 h-6 rounded-full bg-secondary border border-black flex items-center justify-center text-[10px] text-white">🧑‍💻</div>
+                                            <p class="font-black text-[10px]">Eko Riduwan</p>
+                                        </div>
+                                        <div class="bg-surface-container p-2 border border-black mb-2 text-center">
+                                            <p class="text-xs font-black text-secondary">Rp 120.000</p>
+                                            <p class="text-[8px] opacity-80">Dibagi ke 4 Anggota</p>
+                                        </div>
+                                        <p class="text-[10px] font-bold text-lime-success uppercase flex items-center gap-1 justify-center">
+                                            <span class="material-symbols-outlined text-[10px] font-black">check_circle</span> LUNAS SEMUA!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 3: GROUPS (Hidden by default) -->
+                            <div id="tab-groups-content" class="phone-screen hidden flex flex-col gap-3.5">
+                                <span class="text-[10px] font-black uppercase tracking-wider">Daftar Grup Hemat 👥</span>
+
+                                <!-- Group 1 -->
+                                <div class="bg-white border-2 border-black p-3 neobrutalism-shadow-sm flex flex-col gap-2">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h5 class="font-black text-sm uppercase tracking-tight">🍛 Grup Nasi Padang</h5>
+                                            <p class="text-[9px] opacity-75">Tantangan: Hemat Makan Siang</p>
+                                        </div>
+                                        <span class="bg-secondary-fixed text-black border border-black text-[8px] font-black px-1.5 py-0.5">8 Sobat</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1 mt-1">
+                                        <div class="flex justify-between text-[8px] font-bold uppercase">
+                                            <span>Progress Hemat Mingguan</span>
+                                            <span>80%</span>
+                                        </div>
+                                        <div class="w-full h-2 bg-surface border border-black">
+                                            <div class="h-full bg-secondary" style="width: 80%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Group 2 -->
+                                <div class="bg-white border-2 border-black p-3 neobrutalism-shadow-sm flex flex-col gap-2">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h5 class="font-black text-sm uppercase tracking-tight">🎹 Misi Beli Keyboard</h5>
+                                            <p class="text-[9px] opacity-75">Goal Target: Rp 1.500.000</p>
+                                        </div>
+                                        <span class="bg-tertiary-fixed text-black border border-black text-[8px] font-black px-1.5 py-0.5">3 Sobat</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1 mt-1">
+                                        <div class="flex justify-between text-[8px] font-bold uppercase">
+                                            <span>Tabungan Terkumpul</span>
+                                            <span>45%</span>
+                                        </div>
+                                        <div class="w-full h-2 bg-surface border border-black">
+                                            <div class="h-full bg-tertiary" style="width: 45%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Phone Bottom Floating Navigation Dock -->
+                        <div class="bg-white border-t-2 border-black h-[58px] grid grid-cols-3 items-center text-center">
+                            
+                            <!-- Nav Item 1: Home/Dashboard -->
+                            <button id="phone-nav-home" onclick="changePhoneTab('dashboard')" class="flex flex-col items-center justify-center h-full text-secondary font-black focus:outline-none hover:bg-surface-container transition-colors">
+                                <span class="material-symbols-outlined text-xl block" style="font-variation-settings: 'FILL' 1;">home</span>
+                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5">Dashboard</span>
+                            </button>
+
+                            <!-- Nav Item 2: Social Feed -->
+                            <button id="phone-nav-social" onclick="changePhoneTab('social')" class="flex flex-col items-center justify-center h-full text-on-surface opacity-70 font-black focus:outline-none hover:bg-surface-container transition-colors">
+                                <span class="material-symbols-outlined text-xl block">feed</span>
+                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5">Feed</span>
+                            </button>
+
+                            <!-- Nav Item 3: Groups -->
+                            <button id="phone-nav-groups" onclick="changePhoneTab('groups')" class="flex flex-col items-center justify-center h-full text-on-surface opacity-70 font-black focus:outline-none hover:bg-surface-container transition-colors">
+                                <span class="material-symbols-outlined text-xl block">group</span>
+                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5">Grup</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SPLIT BILL / PATUNGAN CALCULATOR -->
+    <section id="splitbill" class="py-24 bg-tertiary-container border-b-4 border-black">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left: Info Copy -->
+                <div class="flex flex-col gap-6">
+                    <span class="bg-secondary text-white px-4 py-2 border-neobrutalism font-black uppercase tracking-wider text-sm select-none w-fit">
+                        Fitur Sosial Sangoo 🍕
+                    </span>
+                    <h2 class="font-black text-4xl md:text-5xl uppercase tracking-tight text-on-surface">
+                        Bagi Tagihan Sisa Jajan Tanpa Canggung!
+                    </h2>
+                    <p class="font-semibold text-lg text-on-surface opacity-90 leading-relaxed">
+                        Fitur <strong class="bg-white border-2 border-black px-1 font-black">Patungan Sangoo</strong> didesain khusus agar kamu tidak perlu lagi sungkan meminta uang kembalian ke teman. Tinggal input total tagihan dan jumlah orang, sistem kami langsung menghitung porsi adil masing-masing sobat!
+                    </p>
+                    <div class="flex flex-col gap-3 mt-2">
+                        <div class="flex items-center gap-3 bg-white p-3 border-neobrutalism-thin w-fit font-bold text-sm">
+                            <span class="material-symbols-outlined text-secondary font-black">done</span>
+                            <span>Pembagian presisi hingga kelipatan rupiah terkecil</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white p-3 border-neobrutalism-thin w-fit font-bold text-sm">
+                            <span class="material-symbols-outlined text-tertiary font-black">done</span>
+                            <span>Draft pesan share WA/Sosmed auto-generate instan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Widget Card -->
+                <div class="bg-white p-8 border-neobrutalism neobrutalism-shadow relative">
+                    <!-- Retro badge -->
+                    <div class="absolute -top-4 -left-4 bg-primary-container text-black font-black uppercase text-xs border-neobrutalism px-3 py-1.5 rotate-[-4deg] select-none">
+                        Widget Interaktif ⚡
+                    </div>
+                    
+                    <h4 class="font-black text-xl uppercase tracking-tight text-on-surface mb-6 border-b-2 border-black pb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined font-black text-secondary">calculate</span>
+                        Kalkulator Patungan Sangoo
+                    </h4>
+
+                    <div class="flex flex-col gap-4">
+                        <!-- Inputs Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Input 1: Total Bill -->
+                            <div class="flex flex-col gap-1.5">
+                                <label for="calc-total" class="font-black text-xs uppercase">Total Tagihan (Rp):</label>
+                                <input type="number" id="calc-total" value="120000" min="1000" step="5000" oninput="calculateSplit()" class="bg-surface border-2 border-black p-3 font-bold text-on-surface focus:outline-none focus:bg-primary-fixed outline-none" style="border-radius: 0px;" />
+                            </div>
+                            <!-- Input 2: Number of people -->
+                            <div class="flex flex-col gap-1.5">
+                                <label for="calc-people" class="font-black text-xs uppercase">Jumlah Teman (Orang):</label>
+                                <input type="number" id="calc-people" value="4" min="1" max="50" oninput="calculateSplit()" class="bg-surface border-2 border-black p-3 font-bold text-on-surface focus:outline-none focus:bg-primary-fixed outline-none" style="border-radius: 0px;" />
+                            </div>
+                        </div>
+
+                        <!-- Description & Category -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-1.5">
+                                <label for="calc-desc" class="font-black text-xs uppercase">Untuk Acara:</label>
+                                <input type="text" id="calc-desc" value="Makan Siang Bareng" oninput="calculateSplit()" class="bg-surface border-2 border-black p-3 font-bold text-on-surface focus:outline-none focus:bg-primary-fixed outline-none" style="border-radius: 0px;" />
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label for="calc-payer" class="font-black text-xs uppercase">Talangan Dibayar Oleh:</label>
+                                <input type="text" id="calc-payer" value="Hanifa" oninput="calculateSplit()" class="bg-surface border-2 border-black p-3 font-bold text-on-surface focus:outline-none focus:bg-primary-fixed outline-none" style="border-radius: 0px;" />
+                            </div>
+                        </div>
+
+                        <!-- Live Output Card -->
+                        <div class="border-2 border-black bg-primary-fixed p-5 mt-4 relative overflow-hidden">
+                            <div class="absolute -right-4 -bottom-4 text-black/5 font-black text-7xl select-none">🧾</div>
+                            <p class="font-black text-xs uppercase opacity-75">Hasil Pembagian Adila:</p>
+                            <h3 id="calc-result-display" class="font-black text-3xl text-on-surface tracking-tight mt-1">Rp 30.000 <span class="text-sm font-bold">/ Orang</span></h3>
+                            
+                            <!-- Invoice Description draft -->
+                            <div class="mt-4 pt-3 border-t border-black/10 flex flex-col gap-2">
+                                <p class="font-black text-xs uppercase opacity-75">Draft Pesan Penagihan:</p>
+                                <div id="calc-draft-box" class="bg-white border border-black p-3 font-semibold text-xs text-on-surface select-all leading-normal whitespace-pre-line">
+                                    Udah dibagi ya! Masing-masing patungan Rp 30.000 buat "Makan Siang Bareng" ke Hanifa. Pakai Sangoo biar bayar patungan instan tanpa ribet! 🍕
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex gap-3 mt-2">
+                            <button onclick="copySplitDraft()" class="flex-1 bg-on-surface text-white font-black py-3 border-neobrutalism-thin uppercase neobrutalism-press-sm text-sm tracking-wider flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-sm font-black">content_copy</span> Salin Draft Pesan
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Social Financial Feed Showcase -->
+    <section class="py-24 bg-white border-b-4 border-black">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+            
+            <h2 class="font-black text-4xl md:text-5xl uppercase mb-12 flex flex-wrap items-center gap-4">
+                <span class="material-symbols-outlined text-4xl bg-primary-container p-3 border-neobrutalism rotate-[-3deg] block">forum</span>
+                Komunitas Sobat Hemat Sangoo
+            </h2>
+
+            <div class="grid grid-cols-12 gap-8">
+                
+                <!-- Large Bento Item (8 cols) -->
+                <div class="col-span-12 lg:col-span-8 bg-surface border-neobrutalism p-8 neobrutalism-shadow flex flex-col md:flex-row gap-8 items-stretch">
+                    <div class="md:w-1/2 flex flex-col">
+                        <img alt="Teman nongkrong hemat" class="w-full h-full object-cover border-2 border-black min-h-[220px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqK4TCIQ_9wbxmiLJL86XHI8wXGyx8nM8BV0luYfbjnYvUO6gDHrJlCVyyyYLVkJRU05wtBGqomj_IV7tO6UtdA09PBT08Fx38cSnM6ghwlm0jqzBRYo_q4gXoRg_BtQUtykRa6AuBd4oamlRkbcZDobO69oUjkAtCOYA8qU4mrcJ6VRZRppoVRGiwLkAva09raBWmjU8aWV_K_3-pcGP1QG5g8fOaMfY2X94jaHd6As3WLy0IHqj_pltxcRg9fXPnsuUvJwp8NZI"/>
+                    </div>
+                    <div class="md:w-1/2 flex flex-col justify-between py-1">
+                        <div>
+                            <!-- User header -->
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-secondary rounded-full border-2 border-black flex items-center justify-center font-bold text-white">🧑‍💻</div>
+                                <div>
+                                    <p class="font-black text-sm">Eko Riduwan</p>
+                                    <p class="text-xs opacity-75">Sobat Hemat Premium • 5 Menit Lalu</p>
+                                </div>
+                            </div>
+                            <!-- Comment body -->
+                            <p class="font-semibold text-base leading-relaxed text-on-surface">
+                                "Gokil abis sih, sejak pake grup Sangoo 'Misi Kaya' bareng tongkrongan, kami jadi saling bantu ingetin budget. Bulan ini sukses hemat 20% tanpa berasa sengsara!"
+                            </p>
+                        </div>
+                        
+                        <!-- Tags & Likes interaction -->
+                        <div class="flex flex-col gap-4 mt-6 pt-4 border-t-2 border-black/10">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary-container px-3 py-1 border-neobrutalism-thin text-xs font-black uppercase">#HematSquad</span>
+                                <span class="bg-tertiary-container px-3 py-1 border-neobrutalism-thin text-xs font-black uppercase">#MisiKaya</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <button onclick="reactToFeedPost(this)" class="bg-white border-2 border-black px-4 py-1.5 font-black text-xs uppercase neobrutalism-press-sm">
+                                    🔥 <span class="likes-count">24</span> Likes
+                                </button>
+                                <button onclick="reactToFeedPost(this)" class="bg-white border-2 border-black px-4 py-1.5 font-black text-xs uppercase neobrutalism-press-sm">
+                                    🙌 <span class="likes-count">12</span> Respek
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Bento Item (4 cols) -->
+                <div class="col-span-12 lg:col-span-4 bg-primary-fixed p-8 border-neobrutalism neobrutalism-shadow flex flex-col justify-between gap-8">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="material-symbols-outlined text-4xl text-secondary font-black">trending_up</span>
+                            <span class="bg-white border-neobrutalism-thin px-2.5 py-1 font-black text-xs uppercase">Tren Grup</span>
+                        </div>
+                        <h4 class="font-black text-2xl uppercase tracking-tight mb-2">🍛 Grup Nasi Padang</h4>
+                        <p class="font-semibold text-sm opacity-90 leading-relaxed">
+                            Sebanyak 8 anggota tongkrongan baru saja mencapai target hemat mingguan mereka berturut-turut!
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mt-4">
+                        <!-- Member Avatars stacked -->
+                        <div class="flex -space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-secondary border-2 border-black flex items-center justify-center font-bold text-white text-xs z-10">🧑</div>
+                            <div class="w-10 h-10 rounded-full bg-tertiary border-2 border-black flex items-center justify-center font-bold text-white text-xs z-20">👩</div>
+                            <div class="w-10 h-10 rounded-full bg-primary border-2 border-black flex items-center justify-center font-bold text-black text-xs z-30">🤖</div>
+                            <div class="w-10 h-10 rounded-full bg-white border-2 border-black flex items-center justify-center font-black text-black text-xs z-40">+5</div>
+                        </div>
+                        <a href="#simulator" class="bg-white border-2 border-black p-2 hover:bg-secondary hover:text-white transition-colors duration-150 border-neobrutalism-thin">
+                            <span class="material-symbols-outlined text-lg block font-black">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive FAQ Section -->
+    <section id="faq" class="py-24 bg-surface border-b-4 border-black">
+        <div class="max-w-4xl mx-auto px-margin-mobile">
+            
+            <div class="mb-16 text-center">
+                <span class="bg-tertiary text-white px-4 py-2 border-neobrutalism font-black uppercase tracking-wider text-sm select-none inline-block rotate-[1.5deg]">
+                    Bantuan & Pertanyaan ❓
+                </span>
+                <h2 class="font-black text-4xl uppercase mt-6 tracking-tight">
+                    Pertanyaan Sobat Sangoo
+                </h2>
+                <p class="font-semibold text-on-surface opacity-80 mt-4">
+                    Punya pertanyaan seputar cara kerja Sangoo? Silakan cek jawaban cepat kami di bawah!
+                </p>
+            </div>
+
+            <!-- Accordion FAQ -->
+            <div class="flex flex-col gap-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span>📱 Apakah Sangoo itu Aplikasi Akuntansi Keuangan?</span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-1">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Bukan! Sangoo adalah aplikasi pencatat keuangan yang <strong class="bg-primary-fixed px-1 font-bold">playful dan sosial</strong>. Kami tidak menggunakan sistem pencatatan debit-kredit akuntansi yang rumit, melainkan pendekatan uang saku harian (Sangu) yang disesuaikan dengan aktivitas nyata sehari-hari anak muda Indonesia.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span>🔒 Apakah Data Transaksi Saya Aman di Sangoo?</span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-2">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Sangat aman! Sangoo menggunakan infrastruktur cloud dari <strong class="bg-primary-fixed px-1 font-bold">Supabase</strong> dengan enkripsi database standar industri serta pembatasan akses data menggunakan Row Level Security (RLS). Jadi, data finansial pribadimu hanya bisa diakses oleh kamu sendiri!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span>💰 Apakah Ada Biaya Admin atau Potongan?</span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-3">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Sama sekali <strong class="bg-secondary-fixed px-1 font-bold">TIDAK ADA BIAYA</strong>. Sangoo 100% gratis digunakan untuk mencatat dan membagi tagihan virtual secara manual. Kami tidak memotong uang tabunganmu karena Sangoo berfokus penuh pada pencatatan, edukasi, dan keseruan menabung secara sosial!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span>📶 Apakah Aplikasi Ini Bisa Digunakan Offline?</span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-4">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Bisa banget! Sangoo dilengkapi dengan database lokal terintegrasi (<strong class="bg-tertiary-fixed px-1 font-bold">IndexedDB via Dexie.js</strong>). Kamu tetep bisa mencatat jajanmu di tempat yang gak ada sinyal, dan data akan otomatis tersinkronisasi ke cloud begitu HP kamu terhubung ke internet kembali.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY STACK -->
+    <section class="py-16 bg-surface border-b-4 border-black select-none">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
+            <p class="font-black text-on-surface-variant mb-10 uppercase tracking-widest text-xs">Modern Technology Infrastructure ⚙️</p>
+            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-80">
+                <span class="font-black text-xl italic border-neobrutalism-thin bg-white px-3 py-1 text-on-surface rotate-[-2deg]">React Native / Web</span>
+                <span class="font-black text-xl italic border-neobrutalism-thin bg-primary-fixed px-3 py-1 text-on-surface rotate-[3deg]">Supabase Auth & DB</span>
+                <span class="font-black text-xl italic border-neobrutalism-thin bg-secondary-fixed px-3 py-1 text-on-surface rotate-[-1deg]">Capacitor Hybrid</span>
+                <span class="font-black text-xl italic border-neobrutalism-thin bg-white px-3 py-1 text-on-surface rotate-[4deg]">Tailwind CSS</span>
+                <span class="font-black text-xl italic border-neobrutalism-thin bg-tertiary-fixed px-3 py-1 text-on-surface rotate-[-3deg]">TypeScript</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Download APK Section -->
+    <section id="download" class="py-24 bg-secondary-container text-white relative">
+        <!-- background grid pattern -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none select-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+            <div class="bg-on-surface text-surface p-8 md:p-14 border-neobrutalism neobrutalism-shadow flex flex-col lg:flex-row items-center justify-between gap-12">
+                
+                <!-- Left: Download QR & Text -->
+                <div class="max-w-2xl flex flex-col gap-6">
+                    <h2 class="font-black text-4xl md:text-5xl uppercase tracking-tight text-white leading-tight">
+                        Siap Naik Level Finansial Tanpa Drama?
+                    </h2>
+                    <p class="font-semibold text-base md:text-lg opacity-85 text-surface leading-relaxed">
+                        Scan QR Code di samping menggunakan HP kamu untuk langsung mengunduh file instalasi <strong class="text-primary-container">Sangoo APK Versi 1.0.0 Stable</strong>, atau klik tombol download langsung untuk menyimpan file instalasi di komputermu sekarang juga!
+                    </p>
+                    
+                    <!-- QR and info flex -->
+                    <div class="flex flex-wrap items-center gap-6 mt-2">
+                        <div class="w-32 h-32 bg-white border-neobrutalism p-2 flex items-center justify-center shrink-0">
+                            <img alt="Sangoo APK Download QR Code" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPPwqssqR8N5N-6NIL2CMGRT9J6BzkK1-RydHCZnAgxl-5ERIfrnVTrKc7OBKNdrJMDGKFE13jSINByJUlSzmwOY_sokaD0UDraafJqRZFPhLPkqPpnPqC5kx7Uw7NA83kyb79mQrSeOZy3LPAXtsit725pCqAv5hq-L4TqXCkngjqugpicSc1ecVrhtWx2ClHNFFTVMsatKKa_2xWMn1yuA5bNgl2ub0pVWu_56_EtO2fLZrW1aq2nR-obFGKcjEi71aafd_nUMc"/>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="font-black text-lg text-white uppercase flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 bg-lime-success rounded-full block animate-ping"></span>
+                                Android APK v1.0.0
+                            </p>
+                            <ul class="text-xs font-semibold opacity-75 list-disc pl-4 flex flex-col gap-1 text-surface">
+                                <li>Ukuran File Ringan: Hanya 18 MB</li>
+                                <li>Tanpa Iklan yang Mengganggu Kenyamanan</li>
+                                <li>Aman & Kompatibel dengan Android 8.0 ke atas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Massive Download CTA button -->
+                <div class="relative flex justify-center items-center w-full lg:w-auto">
+                    <div class="absolute inset-0 bg-primary-container border-neobrutalism rotate-[4deg] -z-10 translate-x-4 translate-y-4"></div>
+                    <button onclick="triggerDownloadProcess()" class="bg-white text-on-surface border-neobrutalism px-12 py-7 font-black text-2xl neobrutalism-shadow hover:neobrutalism-shadow-active transition-all uppercase tracking-tighter w-full lg:w-auto select-none flex flex-col items-center gap-1">
+                        <span class="flex items-center gap-2 font-black">
+                            <span class="material-symbols-outlined text-3xl font-black text-secondary">download_for_offline</span>
+                            DAPATKAN APK
+                        </span>
+                        <span class="text-xs font-bold opacity-60 normal-case">Klik untuk unduh langsung (.apk)</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-on-surface text-surface border-t-4 border-black select-none mt-auto">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col lg:flex-row justify-between items-stretch gap-10">
+            
+            <!-- Brand & copyright -->
+            <div class="flex flex-col gap-4 max-w-sm">
+                <div class="flex items-center gap-2">
+                    <div class="bg-white p-1 border border-black w-8 h-8 flex items-center justify-center">
+                        <img alt="SANGOO Logo" class="h-6 w-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLNZ_tn62JyfYGM7L8gSCEUEx1cRmR9SBzKsJuc09PVNel--GmGHGIwAqSORHYPlTx7xaGWi4DpSROedTKt-yp8WBCYVjsaOja75jlyzsbFIB4Vg5wtojz1oshJ8OLOcRSEhjcHdmKzabsuWft6z-0JlZu4Z3p2wpJn2MRp7MP8FKe7bSRFAyB6PSG-3kCVBWj3RryMP30g8laH6P9L5UXKSnWWeKRYRqnYEUcbGvt25bBUR2hzDKElK1VOEbMzpKLyiEvTl4pKdM"/>
+                    </div>
+                    <span class="font-black tracking-widest text-white uppercase text-lg">SANGOO</span>
+                </div>
+                <p class="text-sm font-semibold opacity-70 leading-relaxed text-surface">
+                    Pencatatan keuangan hyper-social modern pertama di Indonesia. Kembangkan habit hemat seru bersama kawan-kawan tongkronganmu!
+                </p>
+                <p class="text-xs opacity-50 mt-2">
+                    © 2026 SANGOO. Dibuat dengan hobi & penuh cinta untuk generasi hemat.
+                </p>
+            </div>
+
+            <!-- Footer Quick Links -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Links Col 1 -->
+                <div class="flex flex-col gap-3">
+                    <h5 class="font-black text-xs uppercase tracking-widest text-primary-container">Navigasi</h5>
+                    <a class="text-sm font-semibold opacity-80 hover:text-primary-container transition-colors" href="#features">⚡ Fitur Utama</a>
+                    <a class="text-sm font-semibold opacity-80 hover:text-primary-container transition-colors" href="#simulator">📱 Simulator App</a>
+                    <a class="text-sm font-semibold opacity-80 hover:text-primary-container transition-colors" href="#splitbill">🍕 Kalkulator Patungan</a>
+                </div>
+                <!-- Links Col 2 -->
+                <div class="flex flex-col gap-3">
+                    <h5 class="font-black text-xs uppercase tracking-widest text-secondary-fixed">Legalitas</h5>
+                    <a class="text-sm font-semibold opacity-80 hover:text-secondary-fixed transition-colors" href="#">Syarat & Ketentuan</a>
+                    <a class="text-sm font-semibold opacity-80 hover:text-secondary-fixed transition-colors" href="#">Kebijakan Privasi</a>
+                    <a class="text-sm font-semibold opacity-80 hover:text-secondary-fixed transition-colors" href="#">Pemberitahuan Lisensi</a>
+                </div>
+                <!-- Links Col 3 -->
+                <div class="flex flex-col gap-3 col-span-2 md:col-span-1">
+                    <h5 class="font-black text-xs uppercase tracking-widest text-tertiary-fixed">Komunitas</h5>
+                    <a class="text-sm font-semibold opacity-80 hover:text-tertiary-fixed transition-colors flex items-center gap-1.5" href="#">
+                        <span>Instagram</span>
+                        <span class="material-symbols-outlined text-xs font-black">north_east</span>
+                    </a>
+                    <a class="text-sm font-semibold opacity-80 hover:text-tertiary-fixed transition-colors flex items-center gap-1.5" href="#">
+                        <span>TikTok</span>
+                        <span class="material-symbols-outlined text-xs font-black">north_east</span>
+                    </a>
+                    <a class="text-sm font-semibold opacity-80 hover:text-tertiary-fixed transition-colors flex items-center gap-1.5" href="#">
+                        <span>WhatsApp Group</span>
+                        <span class="material-symbols-outlined text-xs font-black">north_east</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE APP SIMULATOR & COMPONENT LOGIC -->
+    <script>
+        // --- GLOBAL TOAST SYSTEM ---
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }, 3000);
+        }
+
+        // --- MOBILE DRAWER NAVIGATION MENU ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.textContent = 'menu';
+            } else {
+                menuIcon.textContent = 'close';
+            }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.textContent = 'menu';
+            });
+        });
+
+        // --- DYNAMIC Ticker/Counter for Download Count ---
+        let baseCount = 14820;
+        const tickerEl = document.getElementById('downloads-ticker');
+        
+        setInterval(() => {
+            baseCount += Math.floor(Math.random() * 3) + 1;
+            tickerEl.textContent = (baseCount / 1000).toFixed(1) + 'K+';
+        }, 8000);
+
+        // --- INTERACTIVE CONFETTI PARTICLE SYSTEM ---
+        function triggerConfettiAndGo(anchorId) {
+            createConfetti(100);
+            setTimeout(() => {
+                const targetElement = document.querySelector(anchorId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500);
+        }
+
+        function triggerDownloadProcess() {
+            createConfetti(150);
+            showToast("📥 Terima kasih! Sangoo APK berhasil diunduh secara instan!");
+        }
+
+        function createConfetti(count = 50) {
+            const colors = ['#ffd600', '#b70052', '#00629e', '#10b981', '#ffffff', '#000000'];
+            const container = document.body;
+            
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.classList.add('confetti-particle');
+                
+                // Randomize positions, styles
+                const size = Math.floor(Math.random() * 8) + 6;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                p.style.border = '1px solid #000';
+                p.style.borderRadius = Math.random() > 0.5 ? '0px' : '50%'; // Brutalist geometric particles
+                
+                // Spawn centered in window or around mouse pointer
+                p.style.left = (Math.random() * window.innerWidth) + 'px';
+                p.style.top = (window.scrollY + (Math.random() * (window.innerHeight * 0.4))) + 'px';
+                
+                container.appendChild(p);
+                
+                // Physics animation
+                const velocityX = (Math.random() - 0.5) * 15;
+                const velocityY = (Math.random() * 8) + 6;
+                const rotation = Math.random() * 360;
+                
+                let posX = parseFloat(p.style.left);
+                let posY = parseFloat(p.style.top);
+                let rot = rotation;
+                let opacity = 1;
+                
+                const animate = () => {
+                    if (opacity <= 0.05) {
+                        p.remove();
+                        return;
+                    }
+                    
+                    posX += velocityX;
+                    posY += velocityY;
+                    rot += 5;
+                    opacity -= 0.02;
+                    
+                    p.style.left = posX + 'px';
+                    p.style.top = posY + 'px';
+                    p.style.transform = `rotate(${rot}deg)`;
+                    p.style.opacity = opacity;
+                    
+                    requestAnimationFrame(animate);
+                };
+                
+                requestAnimationFrame(animate);
+            }
+        }
+
+        // --- STABILIZE CLOCK ---
+        function updatePhoneTime() {
+            const timeEl = document.getElementById('phone-time');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            timeEl.textContent = `${hours}:${minutes}`;
+        }
+        updatePhoneTime();
+        setInterval(updatePhoneTime, 30000);
+
+        // --- INTERACTIVE SIMULATOR (VIRTUAL PHONE) STATE ---
+        const simState = {
+            balance: 350000,
+            dailyLimit: 75000,
+            spentToday: 40000,
+            avatarIdx: 1,
+            currentTab: 'dashboard',
+            transactions: [
+                { id: 1, text: 'Makan Siang', desc: 'Makanan & Minuman', amount: 25000, emoji: '🍔', category: 'food' },
+                { id: 2, text: 'Kopi Susu', desc: 'Gaya Hidup', amount: 15000, emoji: '☕', category: 'coffee' }
+            ]
+        };
+
+        const avatars = {
+            1: { emoji: '🧑‍💻', bg: '#b70052' },
+            2: { emoji: '🐱', bg: '#00629e' },
+            3: { emoji: '🚀', bg: '#ffd600' },
+            4: { emoji: '🦊', bg: '#10b981' }
+        };
+
+        // Render phone updates based on state
+        function renderPhone() {
+            // Update Balance
+            const balanceEl = document.getElementById('phone-balance');
+            balanceEl.textContent = 'Rp ' + simState.balance.toLocaleString('id-ID');
+
+            // Update Budget
+            const budgetTextEl = document.getElementById('phone-budget-text');
+            budgetTextEl.textContent = `Rp ${simState.spentToday.toLocaleString('id-ID')} / Rp ${simState.dailyLimit.toLocaleString('id-ID')}`;
+
+            // Update Budget Progress Bar & Warning Warning
+            const budgetBar = document.getElementById('phone-budget-bar');
+            const budgetWarning = document.getElementById('phone-budget-warning');
+            
+            const pct = Math.min((simState.spentToday / simState.dailyLimit) * 100, 100);
+            budgetBar.style.width = pct + '%';
+
+            // Reset classes
+            budgetBar.className = "h-full border-r border-black transition-all duration-300 ";
+            budgetWarning.className = "text-[9px] font-bold uppercase flex items-center gap-1 ";
+
+            if (pct < 70) {
+                budgetBar.classList.add("bg-lime-success");
+                budgetWarning.classList.add("text-lime-success");
+                budgetWarning.innerHTML = `<span class="material-symbols-outlined text-[10px] font-black">check_circle</span> Budget aman sentosa!`;
+            } else if (pct < 95) {
+                budgetBar.classList.add("bg-primary-container");
+                budgetWarning.classList.add("text-primary-container", "bg-black/80", "px-1.5", "py-0.5", "w-fit");
+                budgetWarning.innerHTML = `<span class="material-symbols-outlined text-[10px] font-black">warning</span> Waspada! Mulai kritis!`;
+            } else {
+                budgetBar.classList.add("bg-secondary");
+                budgetWarning.classList.add("text-secondary", "bg-black", "px-1.5", "py-0.5", "w-fit", "animate-pulse");
+                budgetWarning.innerHTML = `<span class="material-symbols-outlined text-[10px] font-black">emergency_home</span> GAWAT! Kamu Overbudget!`;
+            }
+
+            // Update Transaction Items in HTML
+            const txContainer = document.getElementById('phone-transactions-list');
+            txContainer.innerHTML = '';
+
+            simState.transactions.slice().reverse().forEach(tx => {
+                const item = document.createElement('div');
+                item.className = "bg-white border-2 border-black p-2 flex justify-between items-center text-xs transform hover:scale-[1.02] transition-transform duration-100";
+                item.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 bg-surface-container border border-black flex items-center justify-center font-bold">${tx.emoji}</div>
+                        <div>
+                            <p class="font-black text-[11px]">${tx.text}</p>
+                            <p class="text-[9px] opacity-60">${tx.desc}</p>
+                        </div>
+                    </div>
+                    <span class="font-black text-error text-[11px]">-Rp ${tx.amount.toLocaleString('id-ID')}</span>
+                `;
+                txContainer.appendChild(item);
+            });
+
+            // Update Avatar display
+            const avatarDisplay = document.getElementById('phone-avatar-display');
+            avatarDisplay.textContent = avatars[simState.avatarIdx].emoji;
+            avatarDisplay.style.backgroundColor = avatars[simState.avatarIdx].bg;
+        }
+
+        // Handle Change Phone Tabs
+        function changePhoneTab(tabName) {
+            simState.currentTab = tabName;
+            
+            // Hide all tab screens
+            document.getElementById('tab-dashboard-content').classList.add('hidden');
+            document.getElementById('tab-social-content').classList.add('hidden');
+            document.getElementById('tab-groups-content').classList.add('hidden');
+            
+            // Show selected tab screen
+            document.getElementById(`tab-${tabName}-content`).classList.remove('hidden');
+
+            // Reset navigation tab button designs
+            const navHome = document.getElementById('phone-nav-home');
+            const navSocial = document.getElementById('phone-nav-social');
+            const navGroups = document.getElementById('phone-nav-groups');
+
+            navHome.className = "flex flex-col items-center justify-center h-full font-black focus:outline-none hover:bg-surface-container transition-colors text-on-surface opacity-70";
+            navSocial.className = "flex flex-col items-center justify-center h-full font-black focus:outline-none hover:bg-surface-container transition-colors text-on-surface opacity-70";
+            navGroups.className = "flex flex-col items-center justify-center h-full font-black focus:outline-none hover:bg-surface-container transition-colors text-on-surface opacity-70";
+
+            // Highlight selected nav
+            if (tabName === 'dashboard') {
+                navHome.classList.remove('text-on-surface', 'opacity-70');
+                navHome.classList.add('text-secondary');
+            } else if (tabName === 'social') {
+                navSocial.classList.remove('text-on-surface', 'opacity-70');
+                navSocial.classList.add('text-secondary');
+            } else if (tabName === 'groups') {
+                navGroups.classList.remove('text-on-surface', 'opacity-70');
+                navGroups.classList.add('text-secondary');
+            }
+        }
+
+        // Handle Add Transaction through NLP input
+        function handleSimulatorAdd() {
+            const inputEl = document.getElementById('sim-input');
+            const value = inputEl.value.trim();
+            if (!value) return;
+
+            // Parse NLP: e.g., "25rb makan siang" or "10k parkir"
+            let amount = 10000;
+            let text = "Belanja Jajan";
+            let emoji = "🛍️";
+            let desc = "Lain-lain";
+
+            // Regular expressions to extract amount
+            const moneyPattern = /(\d+)\s*(rb|k|ribu)?/i;
+            const match = value.match(moneyPattern);
+            if (match) {
+                let parsedAmt = parseInt(match[1]);
+                let multiplier = match[2] ? match[2].toLowerCase() : '';
+                
+                if (multiplier === 'rb' || multiplier === 'ribu' || multiplier === 'k') {
+                    amount = parsedAmt * 1000;
+                } else if (parsedAmt < 1000) {
+                    amount = parsedAmt * 1000; // Auto-multiplier for '20' -> 20000
+                } else {
+                    amount = parsedAmt;
+                }
+            }
+
+            // Extract description: remove money pattern from text
+            let rawDesc = value.replace(moneyPattern, '').trim();
+            if (rawDesc) {
+                text = rawDesc.charAt(0).toUpperCase() + rawDesc.slice(1);
+            }
+
+            // Simple keyword-based category matching
+            const lowerText = text.toLowerCase();
+            if (lowerText.includes('makan') || lowerText.includes('bakso') || lowerText.includes('mie') || lowerText.includes('ramen') || lowerText.includes('nasi') || lowerText.includes('sate')) {
+                emoji = "🍲";
+                desc = "Makanan & Minuman";
+            } else if (lowerText.includes('kopi') || lowerText.includes('teh') || lowerText.includes('es') || lowerText.includes('boba') || lowerText.includes('minum')) {
+                emoji = "🥤";
+                desc = "Gaya Hidup";
+            } else if (lowerText.includes('parkir') || lowerText.includes('bensin') || lowerText.includes('gojek') || lowerText.includes('grab') || lowerText.includes('ojek')) {
+                emoji = "🚗";
+                desc = "Transportasi";
+            } else if (lowerText.includes('bioskop') || lowerText.includes('nonton') || lowerText.includes('game') || lowerText.includes('steam')) {
+                emoji = "🎮";
+                desc = "Hiburan";
+            } else if (lowerText.includes('buku') || lowerText.includes('kuliah') || lowerText.includes('pen') || lowerText.includes('pensil')) {
+                emoji = "📚";
+                desc = "Pendidikan";
+            }
+
+            // Update State
+            simState.balance -= amount;
+            simState.spentToday += amount;
+            simState.transactions.push({
+                id: Date.now(),
+                text: text,
+                desc: desc,
+                amount: amount,
+                emoji: emoji
+            });
+
+            // Ensure limit state boundaries
+            if (simState.balance < 0) simState.balance = 0;
+
+            // Trigger Phone Notification Banner
+            triggerNotificationBanner(`Transaksi berhasil: ${text} (-Rp ${amount.toLocaleString('id-ID')}) 📝`);
+
+            // Clear Input and Render
+            inputEl.value = '';
+            renderPhone();
+            
+            // Bring user to dashboard tab to see changes
+            changePhoneTab('dashboard');
+
+            // Micro particle bursts at simulator input
+            createInputBurst();
+        }
+
+        // Run Shortcut preset button
+        function runPreset(presetStr) {
+            const inputEl = document.getElementById('sim-input');
+            inputEl.value = presetStr;
+            handleSimulatorAdd();
+        }
+
+        // Handle Daily Budget Slider Change
+        function handleSliderChange(val) {
+            const numericVal = parseInt(val);
+            simState.dailyLimit = numericVal;
+            document.getElementById('slider-label').textContent = 'Rp ' + numericVal.toLocaleString('id-ID');
+            renderPhone();
+        }
+
+        // Change Virtual Avatar
+        function changeSimAvatar(idx) {
+            simState.avatarIdx = idx;
+            triggerNotificationBanner(`Profil diperbarui dengan Avatar ${avatars[idx].emoji}! 😎`);
+            renderPhone();
+        }
+
+        // Trigger Poke Notification
+        function triggerSimPoke() {
+            triggerNotificationBanner("Kamu mencolek Hanifa! 👉");
+            
+            // Randomly simulate social feedback reply in feed
+            setTimeout(() => {
+                triggerNotificationBanner("Hanifa mencolek kamu balik! ⚡");
+                // Add a social notification soundlessly
+                simState.transactions.push({
+                    id: Date.now(),
+                    text: 'Hanifa Mencolek Anda',
+                    desc: 'Sosial',
+                    amount: 0,
+                    emoji: '👉'
+                });
+                renderPhone();
+            }, 3000);
+        }
+
+        // Handle Like/Respek on Social feed post
+        function reactToFeedPost(button) {
+            const countEl = button.querySelector('.likes-count');
+            let currentLikes = parseInt(countEl.textContent);
+            countEl.textContent = currentLikes + 1;
+            
+            // Visual pop effect
+            button.classList.add('scale-110', 'bg-primary-container');
+            setTimeout(() => {
+                button.classList.remove('scale-110', 'bg-primary-container');
+            }, 150);
+
+            showToast("👍 Reaksi sosial terkirim ke sahabat!");
+        }
+
+        // Help show notification on virtual phone banner
+        function triggerNotificationBanner(message) {
+            const banner = document.getElementById('phone-banner');
+            const bannerText = document.getElementById('phone-banner-text');
+            
+            bannerText.textContent = message;
+            banner.classList.remove('-translate-y-24', 'opacity-0');
+            banner.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                banner.classList.remove('translate-y-0', 'opacity-100');
+                banner.classList.add('-translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+
+        // Visual feedback explosion inside input form
+        function createInputBurst() {
+            const inputField = document.getElementById('sim-input');
+            const rect = inputField.getBoundingClientRect();
+            const colors = ['#ffd600', '#b70052', '#00629e', '#10b981'];
+            
+            for (let i = 0; i < 20; i++) {
+                const el = document.createElement('div');
+                el.className = 'confetti-particle';
+                el.style.width = '6px';
+                el.style.height = '6px';
+                el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                el.style.border = '1px solid #000';
+                el.style.left = (rect.left + window.scrollX + (rect.width / 2)) + 'px';
+                el.style.top = (rect.top + window.scrollY + (rect.height / 2)) + 'px';
+                
+                document.body.appendChild(el);
+                
+                const angle = Math.random() * Math.PI * 2;
+                const speed = (Math.random() * 6) + 3;
+                const vX = Math.cos(angle) * speed;
+                const vY = Math.sin(angle) * speed;
+                
+                let pX = parseFloat(el.style.left);
+                let pY = parseFloat(el.style.top);
+                let op = 1;
+                
+                const frame = () => {
+                    if (op <= 0.05) {
+                        el.remove();
+                        return;
+                    }
+                    pX += vX;
+                    pY += vY;
+                    op -= 0.03;
+                    
+                    el.style.left = pX + 'px';
+                    el.style.top = pY + 'px';
+                    el.style.opacity = op;
+                    
+                    requestAnimationFrame(frame);
+                };
+                requestAnimationFrame(frame);
+            }
+        }
+
+        // Initial phone loading
+        renderPhone();
+
+
+        // --- INTERACTIVE SPLIT BILL WIDGET LOGIC ---
+        function calculateSplit() {
+            const total = parseFloat(document.getElementById('calc-total').value) || 0;
+            const people = parseInt(document.getElementById('calc-people').value) || 1;
+            const desc = document.getElementById('calc-desc').value || "Makan Bareng";
+            const payer = document.getElementById('calc-payer').value || "Hanifa";
+            
+            const perPerson = Math.ceil(total / Math.max(people, 1));
+            
+            document.getElementById('calc-result-display').innerHTML = `Rp ${perPerson.toLocaleString('id-ID')} <span class="text-sm font-bold">/ Orang</span>`;
+            
+            const draftBox = document.getElementById('calc-draft-box');
+            draftBox.textContent = `Udah dibagi ya! Masing-masing patungan Rp ${perPerson.toLocaleString('id-ID')} buat "${desc}" ke ${payer}. Pakai Sangoo biar bayar patungan instan tanpa ribet! 🍕`;
+        }
+
+        function copySplitDraft() {
+            const text = document.getElementById('calc-draft-box').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("📋 Draft pesan patungan disalin! Siap dikirim ke WhatsApp!");
+            }).catch(() => {
+                showToast("❌ Gagal menyalin secara otomatis.");
+            });
+        }
+
+
+        // --- INTERACTIVE FAQ ACCORDION LOGIC ---
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('span:last-child');
+            const card = button.parentElement;
+
+            // Close other FAQs
+            document.querySelectorAll('.faq-content').forEach(c => {
+                if (c !== content && !c.classList.contains('hidden')) {
+                    c.classList.add('hidden');
+                    c.previousElementSibling.querySelector('span:last-child').textContent = 'add';
+                    c.previousElementSibling.querySelector('span:last-child').style.transform = 'rotate(0deg)';
+                    c.parentElement.classList.remove('bg-primary-fixed');
+                }
+            });
+
+            // Toggle selected FAQ
+            content.classList.toggle('hidden');
+            if (content.classList.contains('hidden')) {
+                icon.textContent = 'add';
+                icon.style.transform = 'rotate(0deg)';
+                card.classList.remove('bg-primary-fixed');
+            } else {
+                icon.textContent = 'close';
+                icon.style.transform = 'rotate(45deg)';
+                card.classList.add('bg-primary-fixed');
+                // visual spring scroll to focus
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>

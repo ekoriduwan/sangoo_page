@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SANGOO - Hemat Pangkal Kaya, Sangoo Pangkal Bahagia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001d34",
+                    "surface-container-high": "#e8e8e8",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-primary-fixed": "#221b00",
+                    "tertiary": "#00629e",
+                    "outline-variant": "#d0c6ab",
+                    "on-primary-container": "#705d00",
+                    "secondary-container": "#e50069",
+                    "tertiary-fixed": "#cfe5ff",
+                    "primary": "#705d00",
+                    "on-error-container": "#93000a",
+                    "secondary": "#b70052",
+                    "on-background": "#1b1b1b",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-fixed-dim": "#ffb1c1",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#8f003f",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffd9df",
+                    "on-error": "#ffffff",
+                    "primary-container": "#ffd600",
+                    "inverse-surface": "#303030",
+                    "on-secondary-container": "#fffbff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#dadada",
+                    "on-primary-fixed-variant": "#544600",
+                    "surface-tint": "#705d00",
+                    "background": "#f9f9f9",
+                    "primary-fixed-dim": "#e9c400",
+                    "on-tertiary-container": "#00629f",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#004a79",
+                    "on-surface": "#1b1b1b",
+                    "inverse-primary": "#e9c400",
+                    "tertiary-fixed-dim": "#9acbff",
+                    "surface": "#f9f9f9",
+                    "tertiary-container": "#bedcff",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#4d4632",
+                    "outline": "#7f775f",
+                    "surface-variant": "#e2e2e2",
+                    "primary-fixed": "#ffe170",
+                    "surface-container": "#eeeeee",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#3f0018"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "stack-lg": "32px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "40px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Lexend"],
+                    "headline-lg-mobile": ["Lexend"],
+                    "headline-md": ["Lexend"],
+                    "label-bold": ["Lexend"],
+                    "headline-lg": ["Lexend"],
+                    "body-md": ["Lexend"],
+                    "headline-xl": ["Lexend"],
+                    "body-lg": ["Lexend"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .neobrutalism-shadow {
+            box-shadow: 8px 8px 0px 0px #000000;
+        }
+        .neobrutalism-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .neobrutalism-shadow-active {
+            box-shadow: 0px 0px 0px 0px #000000;
+            transform: translate(4px, 4px);
+        }
+        .border-neobrutalism {
+            border: 4px solid #000000;
+        }
+        .border-neobrutalism-thin {
+            border: 2px solid #000000;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-surface sticky top-0 z-50 border-b-4 border-on-surface">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-stack-md">
+<img alt="SANGOO Logo" class="h-10 w-auto" data-alt="A stylized professional logo of a brown leather wallet with a prominent white letter S on its front. The wallet is bursting with green banknotes and cards, rendered in a bold, comic-book neobrutalist style with thick black outlines and vibrant colors against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLNZ_tn62JyfYGM7L8gSCEUEx1cRmR9SBzKsJuc09PVNel--GmGHGIwAqSORHYPlTx7xaGWi4DpSROedTKt-yp8WBCYVjsaOja75jlyzsbFIB4Vg5wtojz1oshJ8OLOcRSEhjcHdmKzabsuWft6z-0JlZu4Z3p2wpJn2MRp7MP8FKe7bSRFAyB6PSG-3kCVBWj3RryMP30g8laH6P9L5UXKSnWWeKRYRqnYEUcbGvt25bBUR2hzDKElK1VOEbMzpKLyiEvTl4pKdM"/>
+<span class="text-headline-md font-headline-md font-black tracking-tighter text-on-surface">SANGOO</span>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-secondary font-bold border-b-4 border-secondary translate-y-0.5 transition-transform" href="#">Fitur</a>
+<a class="text-on-surface font-medium hover:bg-primary-container transition-colors duration-200 px-2 py-1" href="#">Komunitas</a>
+<a class="text-on-surface font-medium hover:bg-primary-container transition-colors duration-200 px-2 py-1" href="#">Tentang Kami</a>
+<a class="text-on-surface font-medium hover:bg-primary-container transition-colors duration-200 px-2 py-1" href="#">Bantuan</a>
+</div>
+<button class="bg-primary-container text-on-primary-container border-neobrutalism-thin px-8 py-2 font-label-bold neobrutalism-shadow-sm hover:neobrutalism-shadow-active transition-all">
+                Masuk
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="bg-primary-container border-b-4 border-on-surface py-24 overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<h1 class="font-headline-xl text-headline-xl text-on-surface leading-none uppercase">
+                    Hemat Pangkal Kaya,<br/>
+<span class="bg-white px-4 border-neobrutalism inline-block my-2">Sangoo</span><br/>
+                    Pangkal Bahagia
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Atur pengeluaran harianmu lebih seru dengan gaya modern. Catat, bagi, dan pantau uang saku bersama komunitas tanpa ribet.
+                </p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-secondary-container text-on-secondary-container border-neobrutalism px-10 py-4 font-headline-md neobrutalism-shadow hover:neobrutalism-shadow-active transition-all flex items-center gap-3">
+<span class="material-symbols-outlined">download</span>
+                        Download APK
+                    </button>
+<button class="bg-white text-on-surface border-neobrutalism px-10 py-4 font-headline-md neobrutalism-shadow-sm hover:neobrutalism-shadow-active transition-all">
+                        Pelajari Fitur
+                    </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-full h-full bg-tertiary border-neobrutalism rounded-xl -z-10 translate-x-4 translate-y-4"></div>
+<img alt="Sangoo App Dashboard" class="w-full border-neobrutalism rounded-xl neobrutalism-shadow" data-alt="A high-quality 3D render of a modern smartphone displaying a vibrant financial dashboard. The screen shows colorful charts, wallet balances, and recent transaction lists in a neobrutalist UI style. The phone is angled slightly, floating against a clean studio background with soft dynamic lighting and high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvoylHRUyEEgADiAKqO8a79y4CR0IiwgF8MMTg9BQf6R21up_XfhJi_MnVCdpFn76vUFHq5TQ86j9zneUsoQYf3YdbSIb3y_IqMFVnYYHj7WmvZ1fEYhL1bCuoFYYQTrV2bL88SJZToGjw8OfvnxkKRc68J9uWGC7hJ-_N8433sHRF86sgsz8ThKB_dfU9u_v0TPicyuKSgGOV1l12-sqcnAxc-Xi4HjvYElyNZ7PYypjhljhyTom9zmAMfMtaphlBOwgugb2o_l0"/>
+</div>
+</div>
+</header>
+<!-- Feature Grid -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="mb-16 text-center">
+<span class="bg-primary-container px-4 py-1 border-neobrutalism-thin font-label-bold uppercase">Kenapa Sangoo?</span>
+<h2 class="font-headline-lg text-headline-lg mt-6">Kelola Keuangan Tanpa Drama</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Catat Kilat -->
+<div class="bg-white p-8 border-neobrutalism neobrutalism-shadow flex flex-col gap-6">
+<div class="bg-secondary-fixed p-4 w-fit border-neobrutalism-thin">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Catat Kilat</h3>
+<p class="font-body-md text-body-md">Input transaksi dalam hitungan detik. Gak ada lagi alasan lupa catat karena kelamaan buka aplikasi.</p>
+</div>
+<!-- Grup Sosial -->
+<div class="bg-tertiary-container p-8 border-neobrutalism neobrutalism-shadow flex flex-col gap-6">
+<div class="bg-white p-4 w-fit border-neobrutalism-thin">
+<span class="material-symbols-outlined text-4xl">group</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Grup Sosial</h3>
+<p class="font-body-md text-body-md">Pantau pengeluaran bareng teman tanpa canggung. Transparansi adalah kunci finansial yang sehat.</p>
+</div>
+<!-- Batas Harian -->
+<div class="bg-secondary-container p-8 border-neobrutalism neobrutalism-shadow flex flex-col gap-6 text-white">
+<div class="bg-white text-secondary-container p-4 w-fit border-neobrutalism-thin">
+<span class="material-symbols-outlined text-4xl">warning</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Batas Harian</h3>
+<p class="font-body-md text-body-md">Atur limit harianmu. Sangoo bakal kasih 'colekan' kalau kamu mulai jajan berlebihan hari ini.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Financial Feed (Bento Style) -->
+<section class="py-24 bg-white border-y-4 border-on-surface">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg mb-12 flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl bg-primary-container p-2 border-neobrutalism-thin">feed</span>
+                Feed Sosial Keuangan
+            </h2>
+<div class="grid grid-cols-12 gap-6">
+<!-- Large Feed Item -->
+<div class="col-span-12 md:col-span-8 bg-surface border-neobrutalism p-8 neobrutalism-shadow flex flex-col md:flex-row gap-8">
+<div class="md:w-1/2">
+<img class="w-full h-full object-cover border-neobrutalism-thin" data-alt="A lively photo of a diverse group of young friends laughing together in a modern, brightly lit cafe. They are sitting around a table with coffee cups and smartphones, embodying a social and connected financial lifestyle. The lighting is high-key and optimistic, with a focus on genuine human connection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqK4TCIQ_9wbxmiLJL86XHI8wXGyx8nM8BV0luYfbjnYvUO6gDHrJlCVyyyYLVkJRU05wtBGqomj_IV7tO6UtdA09PBT08Fx38cSnM6ghwlm0jqzBRYo_q4gXoRg_BtQUtykRa6AuBd4oamlRkbcZDobO69oUjkAtCOYA8qU4mrcJ6VRZRppoVRGiwLkAva09raBWmjU8aWV_K_3-pcGP1QG5g8fOaMfY2X94jaHd6As3WLy0IHqj_pltxcRg9fXPnsuUvJwp8NZI"/>
+</div>
+<div class="md:w-1/2 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-secondary rounded-full border-neobrutalism-thin"></div>
+<span class="font-label-bold">Eko Riduwan</span>
+<span class="text-on-surface-variant text-label-sm">• 2 Menit yang lalu</span>
+</div>
+<p class="font-body-md text-body-md mb-4">"Berhasil hemat 20% bulan ini buat beli keyboard baru! Grup 'Misi Kaya' emang ngebantu banget saling jaga."</p>
+</div>
+<div class="flex gap-4">
+<span class="bg-primary-container px-3 py-1 border-neobrutalism-thin text-label-sm">#HematSquad</span>
+<span class="bg-tertiary-container px-3 py-1 border-neobrutalism-thin text-label-sm">#MisiKaya</span>
+</div>
+</div>
+</div>
+<!-- Small Feed Item -->
+<div class="col-span-12 md:col-span-4 bg-primary-fixed p-6 border-neobrutalism neobrutalism-shadow">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-label-bold uppercase text-xs">Paling Aktif</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Grup Nasi Padang</h4>
+<p class="font-body-md text-body-md mb-4">8 Anggota baru saja mencapai target hemat mingguan mereka.</p>
+<div class="flex -space-x-4">
+<div class="w-10 h-10 rounded-full bg-secondary border-neobrutalism-thin"></div>
+<div class="w-10 h-10 rounded-full bg-tertiary border-neobrutalism-thin"></div>
+<div class="w-10 h-10 rounded-full bg-primary border-neobrutalism-thin"></div>
+<div class="w-10 h-10 rounded-full bg-white border-neobrutalism-thin flex items-center justify-center font-bold text-xs">+5</div>
+</div>
+</div>
+<!-- Medium Feed Item -->
+<div class="col-span-12 md:col-span-5 bg-white p-6 border-neobrutalism neobrutalism-shadow">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-tertiary-fixed rounded-full border-neobrutalism-thin flex items-center justify-center">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<p class="font-label-bold">Makan Siang Bareng</p>
+<p class="text-xs text-on-surface-variant">Patungan di Kirim Ke Hanifa</p>
+</div>
+</div>
+<div class="bg-surface p-4 border-neobrutalism-thin mb-4">
+<p class="text-headline-md font-headline-md text-secondary">Rp 120.000</p>
+<p class="text-xs">Dibagi oleh 4 orang</p>
+</div>
+<button class="w-full bg-tertiary text-white font-label-bold py-2 border-neobrutalism-thin neobrutalism-shadow-sm">Bayar Sekarang</button>
+</div>
+<!-- Long Vertical Item -->
+<div class="col-span-12 md:col-span-7 bg-on-tertiary-fixed text-white p-8 border-neobrutalism neobrutalism-shadow flex items-center justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Analisis Pekan Ini</h4>
+<p class="font-body-md">Pengeluaranmu turun 15% dibanding pekan lalu. Keren!</p>
+</div>
+<div class="h-24 w-40 flex items-end gap-2 px-2">
+<div class="flex-1 bg-primary-container h-[40%] border-neobrutalism-thin"></div>
+<div class="flex-1 bg-secondary h-[60%] border-neobrutalism-thin"></div>
+<div class="flex-1 bg-tertiary h-[85%] border-neobrutalism-thin"></div>
+<div class="flex-1 bg-primary-container h-[50%] border-neobrutalism-thin"></div>
+<div class="flex-1 bg-white h-[30%] border-neobrutalism-thin"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technology Stack -->
+<section class="py-16 bg-surface">
+<div class="max-w-7xl mx-auto px-margin-desktop text-center">
+<p class="font-label-bold text-on-surface-variant mb-10 uppercase tracking-widest">Built with modern tech stack</p>
+<div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-60">
+<span class="font-headline-md font-black italic">REACT</span>
+<span class="font-headline-md font-black italic">SUPABASE</span>
+<span class="font-headline-md font-black italic">CAPACITOR</span>
+<span class="font-headline-md font-black italic">TAILWIND CSS</span>
+<span class="font-headline-md font-black italic">TYPESCRIPT</span>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-24 bg-secondary-container text-white">
+<div class="max-w-7xl mx-auto px-margin-desktop bg-on-surface p-12 border-neobrutalism neobrutalism-shadow flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-xl">
+<h2 class="font-headline-xl text-headline-xl mb-6">Siap Untuk Level Up Finansialmu?</h2>
+<p class="font-body-lg text-body-lg opacity-80 mb-8">Scan QR Code ini untuk mendownload aplikasi Sangoo secara langsung dan mulai perjalanan hematmu hari ini.</p>
+<div class="flex items-center gap-6">
+<img alt="QR Code" class="w-32 h-32 border-neobrutalism bg-white p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPPwqssqR8N5N-6NIL2CMGRT9J6BzkK1-RydHCZnAgxl-5ERIfrnVTrKc7OBKNdrJMDGKFE13jSINByJUlSzmwOY_sokaD0UDraafJqRZFPhLPkqPpnPqC5kx7Uw7NA83kyb79mQrSeOZy3LPAXtsit725pCqAv5hq-L4TqXCkngjqugpicSc1ecVrhtWx2ClHNFFTVMsatKKa_2xWMn1yuA5bNgl2ub0pVWu_56_EtO2fLZrW1aq2nR-obFGKcjEi71aafd_nUMc"/>
+<div>
+<p class="font-label-bold mb-2">Android APK Version 1.0.0</p>
+<p class="text-sm opacity-60">Bebas Iklan • Aman • Ringan</p>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="absolute inset-0 bg-primary-container border-neobrutalism rotate-3 -z-10 translate-x-4"></div>
+<button class="bg-white text-on-surface border-neobrutalism px-12 py-6 font-headline-md neobrutalism-shadow hover:neobrutalism-shadow-active transition-all uppercase tracking-tighter">
+                    Get Started Now
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-on-surface text-surface border-t-4 border-on-surface">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-stack-lg gap-gutter max-w-7xl mx-auto">
+<div class="flex flex-col gap-4">
+<div class="text-headline-sm font-headline-sm font-black text-surface">SANGOO</div>
+<p class="text-body-md font-body-md opacity-60">© 2024 SANGOO. Dibuat dengan hobi untuk sobat hemat.</p>
+</div>
+<div class="flex flex-wrap gap-8">
+<a class="text-surface-variant font-medium hover:text-primary-container transition-colors" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-surface-variant font-medium hover:text-primary-container transition-colors" href="#">Kebijakan Privasi</a>
+<a class="text-surface-variant font-medium hover:text-primary-container transition-colors" href="#">Kontak</a>
+<a class="text-surface-variant font-medium hover:text-primary-container transition-colors" href="#">Instagram</a>
+<a class="text-surface-variant font-medium hover:text-primary-container transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>
