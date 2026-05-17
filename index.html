@@ -925,44 +925,196 @@
                 <!-- FAQ Item 1 -->
                 <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
                     <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
-                        <span>📱 Apakah Sangoo itu Aplikasi Akuntansi Keuangan?</span>
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-secondary font-black">login</span>
+                            Bagaimana cara masuk (login) ke Sangoo?
+                        </span>
                         <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-1">add</span>
                     </button>
                     <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
-                        Bukan! Sangoo adalah aplikasi pencatat keuangan yang <strong class="bg-primary-fixed px-1 font-bold">playful dan sosial</strong>. Kami tidak menggunakan sistem pencatatan debit-kredit akuntansi yang rumit, melainkan pendekatan uang saku harian (Sangu) yang disesuaikan dengan aktivitas nyata sehari-hari anak muda Indonesia.
+                        Klik tombol "Masuk dengan Google" di halaman awal (Onboarding). Kamu akan diarahkan ke browser untuk login dengan akun Google. Setelah berhasil, kamu akan langsung masuk ke Dashboard Sangoo.
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
                 <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
                     <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
-                        <span>🔒 Apakah Data Transaksi Saya Aman di Sangoo?</span>
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-secondary font-black">badge</span>
+                            Bagaimana cara mengganti Avatar?
+                        </span>
                         <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-2">add</span>
                     </button>
                     <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
-                        Sangat aman! Sangoo menggunakan infrastruktur cloud dari <strong class="bg-primary-fixed px-1 font-bold">Supabase</strong> dengan enkripsi database standar industri serta pembatasan akses data menggunakan Row Level Security (RLS). Jadi, data finansial pribadimu hanya bisa diakses oleh kamu sendiri!
+                        Klik pada foto profil di halaman Profil. Nanti akan muncul modal berisi pilihan avatar dari berbagai kategori. Pilih avatar yang kamu suka, dan profilmu akan langsung berubah.
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
                 <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
                     <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
-                        <span>💰 Apakah Ada Biaya Admin atau Potongan?</span>
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-secondary font-black">logout</span>
+                            Bagaimana cara keluar (logout) dari akun?
+                        </span>
                         <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-3">add</span>
                     </button>
                     <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
-                        Sama sekali <strong class="bg-secondary-fixed px-1 font-bold">TIDAK ADA BIAYA</strong>. Sangoo 100% gratis digunakan untuk mencatat dan membagi tagihan virtual secara manual. Kami tidak memotong uang tabunganmu karena Sangoo berfokus penuh pada pencatatan, edukasi, dan keseruan menabung secara sosial!
+                        Di halaman Profil, gulir ke bawah dan klik tombol "Keluar Akun" berwarna merah. Kamu akan kembali ke halaman login.
                     </div>
                 </div>
 
                 <!-- FAQ Item 4 -->
                 <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
                     <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
-                        <span>📶 Apakah Aplikasi Ini Bisa Digunakan Offline?</span>
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-tertiary font-black">notifications_active</span>
+                            Apa itu Batas Sangoo Harian?
+                        </span>
                         <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-4">add</span>
                     </button>
                     <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
-                        Bisa banget! Sangoo dilengkapi dengan database lokal terintegrasi (<strong class="bg-tertiary-fixed px-1 font-bold">IndexedDB via Dexie.js</strong>). Kamu tetep bisa mencatat jajanmu di tempat yang gak ada sinyal, dan data akan otomatis tersinkronisasi ke cloud begitu HP kamu terhubung ke internet kembali.
+                        Fitur untuk membantumu membatasi pengeluaran harian. Kamu bisa atur batas maksimal jajan per hari di menu Pengaturan → Batas Harian. Jika melewati batas, kamu akan mendapat peringatan di Dashboard.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-tertiary font-black">bolt</span>
+                            Bagaimana cara mencatat pengeluaran?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-5">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Klik tombol "+" (Add) di menu bawah, lalu ketik jumlah dan deskripsi. Contoh: <strong class="bg-primary-fixed px-1 font-bold">"25rb makan siang"</strong> → otomatis dikenali sebagai pengeluaran Rp25.000 kategori Makan. Cepat banget!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-tertiary font-black">add_circle</span>
+                            Bagaimana cara Top Up saldo?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-6">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Di halaman Dashboard, klik tombol "Top Up". Pilih kategori pemasukan (Gaji, Bonus, dll), masukkan jumlah dan deskripsi. Saldo kamu akan bertambah otomatis.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-tertiary font-black">swap_horiz</span>
+                            Apa perbedaan Transfer Kirim dan Minta?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-7">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        "Kirim Sangoo" untuk mengirim uang ke teman (saldo kamu berkurang). "Minta Sangoo" untuk meminta uang dari teman (saldo kamu bertambah saat teman mengirim).
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-tertiary font-black">category</span>
+                            Bisakah saya mengatur kategori sendiri?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-8">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Tentu! Buka menu Pengaturan → Atur Kategori. Kamu bisa tambah kategori baru dengan ikon dan warna pilihan sendiri. Kategori buatanmu akan muncul di Quick Add.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 9 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary font-black">group_add</span>
+                            Bagaimana cara membuat grup?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-9">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Buka menu Grup, klik tombol "Buat Grup". Beri nama grup, pilih ikon, lalu undang teman-temanmu dengan membagikan kode undangan.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 10 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary font-black">group</span>
+                            Bagaimana cara bergabung ke grup?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-10">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Klik tombol "Gabung Grup" di halaman Grup, lalu masukkan kode undangan dari temanmu. Setelah bergabung, kamu bisa melihat pengeluaran grup secara transparan.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 11 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-lime-success font-black">security</span>
+                            Data saya aman di Sangoo?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-11">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Sangoo menggunakan enkripsi standar industri (HTTPS + database terenkripsi) untuk melindungi data kamu. Kamu juga bisa mengatur privasi di menu Pengaturan → Privasi & Keamanan.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 12 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-lime-success font-black">dark_mode</span>
+                            Apa itu mode Gelap (Dark Mode)?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-12">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Mode Gelap mengubah tema aplikasi menjadi latar gelap yang lebih nyaman di mata, terutama saat digunakan di malam hari. Aktifkan di menu Pengaturan → Mode Gelap.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 13 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-lime-success font-black">picture_as_pdf</span>
+                            Bagaimana cara export data transaksi?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-13">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Buka menu Profil → Export Data. Pilih periode yang kamu inginkan, lalu klik "Download PDF". File akan tersimpan dan bisa dibuka dengan aplikasi PDF di HP kamu.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 14 -->
+                <div class="border-neobrutalism bg-white neobrutalism-shadow-sm transition-all duration-200">
+                    <button onclick="toggleFAQ(this)" class="w-full text-left p-6 font-black text-lg uppercase tracking-tight flex justify-between items-center focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-secondary font-black">military_tech</span>
+                            Apa itu Level Sangoo (Sangoo Master, dll)?
+                        </span>
+                        <span class="material-symbols-outlined text-2xl font-black transition-transform duration-200" id="faq-icon-14">add</span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 font-medium text-base text-on-surface border-t border-black/10 pt-4 leading-relaxed bg-surface-container-lowest">
+                        Level menunjukkan seberapa aktif kamu mengelola keuangan di Sangoo. Level akan meningkat seiring banyaknya transaksi yang kamu catat. Gelar yang bisa kamu dapatkan: <strong class="bg-primary-fixed px-1 font-bold">Sangoo Pemula (Lv 1), Pengatur Sangoo (Lv 2), Jago Hemat (Lv 3), Sangoo Master (Lv 4), dan Hemat Master (Lv 5)</strong>. Semakin tinggi levelmu, semakin jago kamu mengatur Sangu!
                     </div>
                 </div>
 
