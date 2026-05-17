@@ -740,75 +740,101 @@
                                         </div>
                                         <p class="text-[10px] font-bold text-lime-success uppercase flex items-center gap-1 justify-center">
                                             <span class="material-symbols-outlined text-[10px] font-black">check_circle</span> LUNAS SEMUA!
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- TAB 3: EXPORT PDF (Simulated Mobile Screen) -->
+                                                      <!-- TAB 3: EXPORT PDF (Simulated Mobile Screen - Redesigned to match Screenshot) -->
                             <div id="tab-groups-content" class="phone-screen hidden flex flex-col gap-3">
-                                <span class="text-[10px] font-black uppercase tracking-wider">Ekspor Data Keuangan 📄</span>
                                 
-                                <div class="bg-white border-2 border-black p-3 flex flex-col gap-2">
-                                    <div class="flex justify-between items-center text-[10px] font-black uppercase">
-                                        <span>Status Akun:</span>
-                                        <span class="bg-primary-container px-1 border border-black text-[9px]">SANG MASTER</span>
-                                    </div>
-                                    <p class="text-[11px] font-bold">Ringkasan Bulan Ini (Mei 2026):</p>
-                                    <div class="grid grid-cols-2 gap-2 text-[9px] font-black uppercase text-center">
-                                        <div class="bg-lime-success/20 p-2 border border-black">
-                                            <p class="opacity-60 font-bold text-[8px]">Sangu Masuk</p>
-                                            <p class="text-lime-success font-black">Rp 350.000</p>
-                                        </div>
-                                        <div class="bg-secondary/20 p-2 border border-black">
-                                            <p class="opacity-60 font-bold text-[8px]">Jajan Keluar</p>
-                                            <p class="text-secondary font-black">Rp 40.000</p>
+                                <!-- Main Download Card -->
+                                <div class="bg-white border-2 border-black rounded-[20px] p-4.5 flex flex-col shadow-[2.5px_2.5px_0px_#000] relative">
+                                    
+                                    <!-- Center PDF Icon Box -->
+                                    <div class="flex justify-center mb-1">
+                                        <div class="w-13 h-13 bg-[#eef2f6] border-2 border-black rounded-xl flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-xl font-black text-[#0d56cf]">picture_as_pdf</span>
                                         </div>
                                     </div>
+
+                                    <!-- Header Text -->
+                                    <h5 class="text-center font-black text-slate-800 text-xs">Download Laporan</h5>
+                                    <p class="text-center text-[9px] font-bold text-slate-400 mt-0.5">Pilih periode dan dapatkan laporan keuanganmu.</p>
+
+                                    <!-- Period Tabs capsule -->
+                                    <div class="border-2 border-black rounded-[14px] p-0.5 bg-white grid grid-cols-3 text-center text-[9px] font-black mt-3 relative">
+                                        <button onclick="selectPhonePDFTab('semua')" id="pdf-tab-semua" class="bg-[#0d56cf] text-white py-1.5 border border-black rounded-xl shadow-[1px_1px_0px_#000] transition-all">
+                                            Semua
+                                        </button>
+                                        <button onclick="selectPhonePDFTab('bulan')" id="pdf-tab-bulan" class="text-slate-500 hover:text-slate-800 py-1.5 transition-all">
+                                            Bulan Ini
+                                        </button>
+                                        <button onclick="selectPhonePDFTab('custom')" id="pdf-tab-custom" class="text-slate-500 hover:text-slate-800 py-1.5 transition-all">
+                                            Custom
+                                        </button>
+                                    </div>
+
+                                    <!-- Data Ditemukan Box -->
+                                    <div class="bg-[#f0f4f9] border-2 border-black rounded-[14px] p-3 flex flex-col gap-0.5 mt-3">
+                                        <div class="flex justify-between items-center text-[10px] font-black">
+                                            <span class="text-slate-500 font-extrabold">Data Ditemukan</span>
+                                            <span id="pdf-found-count" class="text-[#0d56cf] font-black">19 Transaksi</span>
+                                        </div>
+                                        <span id="pdf-found-subtext" class="text-[8.5px] font-medium text-slate-400 italic mt-0.5">*Mengambil seluruh riwayat transaksi.</span>
+                                    </div>
+
+                                    <!-- Download Button -->
+                                    <button onclick="triggerPhonePDFDownload()" class="w-full bg-[#0d56cf] text-white font-black py-2.5 border-2 border-black rounded-[14px] shadow-[2px_2px_0px_#000] hover:bg-[#0c4ebc] active:translate-y-0.5 active:shadow-[0px_0px_0px_#000] transition-all flex items-center justify-center gap-1.5 mt-3 text-[10px] font-black uppercase focus:outline-none">
+                                        <span class="material-symbols-outlined text-xs font-black">download</span>
+                                        Download Laporan PDF
+                                    </button>
+
                                 </div>
 
-                                <!-- Format Settings inside Phone Simulator -->
-                                <div class="bg-white border-2 border-black p-3 flex flex-col gap-2">
-                                    <span class="text-[9px] font-black uppercase">Pilih Format Ekspor:</span>
-                                    <div class="flex gap-2">
-                                        <label class="flex-1 bg-surface border border-black p-1.5 flex items-center justify-center gap-1 cursor-pointer hover:bg-primary-fixed select-none text-[8px] font-black uppercase">
-                                            <input type="radio" name="phone-pdf-format" checked class="accent-black" />
-                                            PDF Format
-                                        </label>
-                                        <label class="flex-1 bg-surface border border-black p-1.5 flex items-center justify-center gap-1 cursor-pointer hover:bg-primary-fixed select-none text-[8px] font-black uppercase">
-                                            <input type="radio" name="phone-pdf-format" class="accent-black" />
-                                            CSV Excel
-                                        </label>
+                                <!-- Tips Laporan Card (Lavender) -->
+                                <div class="bg-[#eae4fc] border-2 border-black rounded-[20px] p-3.5 flex flex-col gap-1 shadow-[1px_1px_0px_#000]">
+                                    <div class="flex items-center gap-1.5 text-purple-700">
+                                        <span class="material-symbols-outlined text-sm font-black">lightbulb</span>
+                                        <span class="text-[9px] font-black uppercase tracking-wider">Tips Laporan</span>
                                     </div>
-                                    
-                                    <button onclick="triggerPhonePDFDownload()" class="bg-secondary text-white font-black py-2.5 border-2 border-black uppercase text-[10px] neobrutalism-press-sm tracking-wider flex items-center justify-center gap-1 mt-1">
-                                        <span class="material-symbols-outlined text-xs font-black">download</span>
-                                        Unduh Laporan
-                                    </button>
+                                    <p class="text-[8.5px] font-semibold text-purple-950/80 leading-relaxed mt-0.5">
+                                        Gunakan filter "Custom" jika kamu ingin melihat pengeluaran pada event tertentu, seperti saat liburan atau hari raya!
+                                    </p>
                                 </div>
+
                             </div>
 
                         </div>
 
-                        <!-- Phone Bottom Floating Navigation Dock -->
-                        <div class="bg-white border-t-2 border-black h-[58px] grid grid-cols-3 items-center text-center">
+                        <!-- Phone Bottom Floating Navigation Dock (Match Screenshot) -->
+                        <div class="bg-white border-t-2 border-black h-[62px] grid grid-cols-5 items-center justify-center text-center relative px-1">
                             
-                            <!-- Nav Item 1: Home/Dashboard -->
-                            <button id="phone-nav-home" onclick="changePhoneTab('dashboard')" class="flex flex-col items-center justify-center h-full text-secondary font-black focus:outline-none hover:bg-surface-container transition-colors">
-                                <span class="material-symbols-outlined text-xl block" style="font-variation-settings: 'FILL' 1;">home</span>
-                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5">Dashboard</span>
+                            <!-- Tab 1: Home (Selected Style by default) -->
+                            <button id="phone-nav-home" onclick="changePhoneTab('dashboard')" class="flex items-center justify-center h-full focus:outline-none transition-colors">
+                                <div class="w-[38px] h-[38px] bg-[#0d56cf] border-2 border-black rounded-xl flex items-center justify-center text-white shadow-[1px_1px_0px_#000]">
+                                    <span class="material-symbols-outlined text-lg font-black" style="font-variation-settings: 'FILL' 1;">home</span>
+                                </div>
                             </button>
 
-                            <!-- Nav Item 2: Social Feed -->
-                            <button id="phone-nav-social" onclick="changePhoneTab('social')" class="flex flex-col items-center justify-center h-full text-on-surface opacity-70 font-black focus:outline-none hover:bg-surface-container transition-colors">
-                                <span class="material-symbols-outlined text-xl block">feed</span>
-                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5">Feed</span>
+                            <!-- Tab 2: Activity (Social Feed) -->
+                            <button id="phone-nav-social" onclick="changePhoneTab('social')" class="flex flex-col items-center justify-center h-full text-slate-500 hover:text-slate-800 transition-colors focus:outline-none">
+                                <span class="material-symbols-outlined text-lg">analytics</span>
+                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5 leading-none scale-[0.9]">Activity</span>
                             </button>
 
-                            <!-- Nav Item 3: Reports -->
-                            <button id="phone-nav-groups" onclick="changePhoneTab('groups')" class="flex flex-col items-center justify-center h-full text-on-surface opacity-70 font-black focus:outline-none hover:bg-surface-container transition-colors">
-                                <span class="material-symbols-outlined text-xl block">picture_as_pdf</span>
-                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5">Laporan</span>
+                            <!-- Tab 3: Center Add Transaction Button -->
+                            <button onclick="handleSimPlusButton()" class="flex items-center justify-center h-full focus:outline-none relative -top-1.5">
+                                <div class="w-9 h-9 bg-[#0d56cf] border-2 border-black rounded-full flex items-center justify-center text-white shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-all">
+                                    <span class="material-symbols-outlined text-lg font-black">add</span>
+                                </div>
+                            </button>
+
+                            <!-- Tab 4: Groups/Laporan -->
+                            <button id="phone-nav-groups" onclick="changePhoneTab('groups')" class="flex flex-col items-center justify-center h-full text-slate-500 hover:text-slate-800 transition-colors focus:outline-none">
+                                <span class="material-symbols-outlined text-lg">groups</span>
+                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5 leading-none scale-[0.9]">Groups</span>
+                            </button>
+
+                            <!-- Tab 5: Profile -->
+                            <button onclick="triggerSimProfileClick()" class="flex flex-col items-center justify-center h-full text-slate-500 hover:text-slate-800 transition-colors focus:outline-none">
+                                <span class="material-symbols-outlined text-lg">person</span>
+                                <span class="text-[8px] font-black uppercase tracking-wider mt-0.5 leading-none scale-[0.9]">Profile</span>
                             </button>
 
                         </div>
@@ -1621,7 +1647,7 @@
             avatarDisplay.style.backgroundColor = avatars[simState.avatarIdx].bg;
         }
 
-        // Handle Change Phone Tabs
+        // Handle Change Phone Tabs (Redesigned for 5-tab selected Neobrutalist wrappers & Dynamic App Bar Header)
         function changePhoneTab(tabName) {
             simState.currentTab = tabName;
             
@@ -1638,20 +1664,100 @@
             const navSocial = document.getElementById('phone-nav-social');
             const navGroups = document.getElementById('phone-nav-groups');
 
-            navHome.className = "flex flex-col items-center justify-center h-full font-black focus:outline-none hover:bg-surface-container transition-colors text-on-surface opacity-70";
-            navSocial.className = "flex flex-col items-center justify-center h-full font-black focus:outline-none hover:bg-surface-container transition-colors text-on-surface opacity-70";
-            navGroups.className = "flex flex-col items-center justify-center h-full font-black focus:outline-none hover:bg-surface-container transition-colors text-on-surface opacity-70";
+            if (navHome) {
+                navHome.innerHTML = `<span class="material-symbols-outlined text-lg text-slate-500">home</span><span class="text-[8px] font-black uppercase tracking-wider mt-0.5 leading-none scale-[0.9]">Home</span>`;
+                navHome.className = "flex flex-col items-center justify-center h-full text-slate-500 hover:text-slate-800 transition-colors focus:outline-none";
+            }
 
-            // Highlight selected nav
+            if (navSocial) {
+                navSocial.innerHTML = `<span class="material-symbols-outlined text-lg text-slate-500">analytics</span><span class="text-[8px] font-black uppercase tracking-wider mt-0.5 leading-none scale-[0.9]">Activity</span>`;
+                navSocial.className = "flex flex-col items-center justify-center h-full text-slate-500 hover:text-slate-800 transition-colors focus:outline-none";
+            }
+
+            if (navGroups) {
+                navGroups.innerHTML = `<span class="material-symbols-outlined text-lg text-slate-500">groups</span><span class="text-[8px] font-black uppercase tracking-wider mt-0.5 leading-none scale-[0.9]">Groups</span>`;
+                navGroups.className = "flex flex-col items-center justify-center h-full text-slate-500 hover:text-slate-800 transition-colors focus:outline-none";
+            }
+
+            // Highlight selected nav with filled Blue Card box
             if (tabName === 'dashboard') {
-                navHome.classList.remove('text-on-surface', 'opacity-70');
-                navHome.classList.add('text-secondary');
+                if (navHome) {
+                    navHome.innerHTML = `
+                        <div class="w-[38px] h-[38px] bg-[#0d56cf] border-2 border-black rounded-xl flex items-center justify-center text-white shadow-[1px_1px_0px_#000]">
+                            <span class="material-symbols-outlined text-lg font-black" style="font-variation-settings: 'FILL' 1;">home</span>
+                        </div>
+                    `;
+                    navHome.className = "flex items-center justify-center h-full focus:outline-none transition-colors";
+                }
             } else if (tabName === 'social') {
-                navSocial.classList.remove('text-on-surface', 'opacity-70');
-                navSocial.classList.add('text-secondary');
+                if (navSocial) {
+                    navSocial.innerHTML = `
+                        <div class="w-[38px] h-[38px] bg-[#0d56cf] border-2 border-black rounded-xl flex items-center justify-center text-white shadow-[1px_1px_0px_#000]">
+                            <span class="material-symbols-outlined text-lg font-black" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                        </div>
+                    `;
+                    navSocial.className = "flex items-center justify-center h-full focus:outline-none transition-colors";
+                }
             } else if (tabName === 'groups') {
-                navGroups.classList.remove('text-on-surface', 'opacity-70');
-                navGroups.classList.add('text-secondary');
+                if (navGroups) {
+                    navGroups.innerHTML = `
+                        <div class="w-[38px] h-[38px] bg-[#0d56cf] border-2 border-black rounded-xl flex items-center justify-center text-white shadow-[1px_1px_0px_#000]">
+                            <span class="material-symbols-outlined text-lg font-black" style="font-variation-settings: 'FILL' 1;">groups</span>
+                        </div>
+                    `;
+                    navGroups.className = "flex items-center justify-center h-full focus:outline-none transition-colors";
+                }
+            }
+
+            // Dynamic App Bar Header swap based on tabName
+            const appHeader = document.getElementById('phone-app-bar');
+            if (appHeader) {
+                if (tabName === 'groups') {
+                    appHeader.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <button onclick="changePhoneTab('dashboard')" class="w-7 h-7 bg-white border-2 border-black rounded-lg flex items-center justify-center shadow-[1px_1px_0px_#000] active:translate-y-0.5 active:shadow-[0px_0px_0px_#000] transition-all focus:outline-none">
+                                <span class="material-symbols-outlined text-base font-black text-slate-800">arrow_back</span>
+                            </button>
+                            <span class="font-extrabold text-[13px] text-slate-800 tracking-tight">Export Data</span>
+                        </div>
+                    `;
+                } else {
+                    appHeader.innerHTML = `
+                        <div class="flex items-center gap-2.5">
+                            <div id="phone-avatar-display" class="w-8 h-8 rounded-full bg-[#b70052] border-2 border-black flex items-center justify-center font-bold text-xs text-white shadow-[1px_1px_0px_#000] select-none">
+                                🧑‍💻
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-extrabold text-[10.5px] text-slate-800 tracking-tight leading-tight flex items-center gap-0.5">
+                                    Halo, Eko Cloud Ok! <span class="text-xs">👋</span>
+                                </span>
+                                <span class="font-black text-[9px] text-[#0d56cf] uppercase tracking-wider leading-none mt-0.5">Sangoo</span>
+                            </div>
+                        </div>
+                        <div onclick="triggerSimBell()" class="w-8 h-8 bg-white border-2 border-black rounded-lg shadow-[1px_1px_0px_#000] active:translate-y-0.5 active:shadow-[0px_0px_0px_#000] transition-all flex items-center justify-center cursor-pointer focus:outline-none">
+                            <span class="material-symbols-outlined text-sm font-black text-slate-800">notifications</span>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Custom Phone Mockup Button Event Handlers
+        function triggerSimBell() {
+            triggerNotificationBanner("🔔 Tidak ada notifikasi baru hari ini. Kamu hebat! 🚀");
+        }
+
+        function triggerSimProfileClick() {
+            showToast("👤 Halaman Profil Eko Cloud Ok! Edit avatar di box kiri bawah!");
+        }
+
+        function handleSimPlusButton() {
+            showToast("➕ Silakan ketik transaksi baru di kolom 'Catat Transaksi Instan' sebelah kiri!");
+            const inputEl = document.getElementById('sim-input');
+            if (inputEl) {
+                inputEl.focus();
+                inputEl.classList.add('ring-4', 'ring-[#0d56cf]');
+                setTimeout(() => inputEl.classList.remove('ring-4', 'ring-[#0d56cf]'), 1500);
             }
         }
 
@@ -1995,10 +2101,42 @@ Hemat Pangkal Kaya, Sangoo Pangkal Bahagia!
             URL.revokeObjectURL(url);
         }
 
+        // --- SELECT PHONE PDF TAB ---
+        function selectPhonePDFTab(tabType) {
+            const tabSemua = document.getElementById('pdf-tab-semua');
+            const tabBulan = document.getElementById('pdf-tab-bulan');
+            const tabCustom = document.getElementById('pdf-tab-custom');
+            
+            const countEl = document.getElementById('pdf-found-count');
+            const subtextEl = document.getElementById('pdf-found-subtext');
+            
+            if (!tabSemua || !tabBulan || !tabCustom || !countEl || !subtextEl) return;
+            
+            // Reset styles to inactive
+            [tabSemua, tabBulan, tabCustom].forEach(btn => {
+                btn.className = "text-slate-500 hover:text-slate-800 py-1.5 transition-all focus:outline-none";
+            });
+            
+            // Set styles & values based on active tab
+            if (tabType === 'semua') {
+                tabSemua.className = "bg-[#0d56cf] text-white py-1.5 border border-black rounded-xl shadow-[1px_1px_0px_#000] transition-all focus:outline-none";
+                countEl.textContent = "19 Transaksi";
+                subtextEl.textContent = "*Mengambil seluruh riwayat transaksi.";
+            } else if (tabType === 'bulan') {
+                tabBulan.className = "bg-[#0d56cf] text-white py-1.5 border border-black rounded-xl shadow-[1px_1px_0px_#000] transition-all focus:outline-none";
+                countEl.textContent = "5 Transaksi";
+                subtextEl.textContent = "*Mengambil riwayat transaksi bulan ini.";
+            } else if (tabType === 'custom') {
+                tabCustom.className = "bg-[#0d56cf] text-white py-1.5 border border-black rounded-xl shadow-[1px_1px_0px_#000] transition-all focus:outline-none";
+                countEl.textContent = "0 Transaksi";
+                subtextEl.textContent = "*Silakan tentukan rentang tanggal kustom.";
+            }
+        }
+
         // --- SIMULATOR PHONE SPECIFIC DOWNLOAD ---
         function triggerPhonePDFDownload() {
             createConfetti(80);
-            showToast("📥 Laporan PDF Sangoo Mei 2026 berhasil diunduh ke ponselmu!");
+            showToast("📥 Laporan PDF Sangoo berhasil diunduh ke ponselmu!");
         }
 
 
