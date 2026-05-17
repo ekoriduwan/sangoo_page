@@ -414,27 +414,98 @@
                 <!-- Left Column: Simulator Controls (7 cols) -->
                 <div class="lg:col-span-7 flex flex-col gap-6 justify-between">
                     
-                    <!-- Control Box 1: Quick Add Input Simulator -->
-                    <div class="border-neobrutalism bg-primary-fixed p-6 neobrutalism-shadow-sm flex flex-col gap-4">
-                        <div class="flex items-center gap-2">
-                            <span class="material-symbols-outlined font-black text-secondary">bolt</span>
-                            <h4 class="font-black text-xl uppercase tracking-tight text-on-surface">1. Catat Transaksi Instan (Natural Language)</h4>
+                    <!-- Control Box 1: Redesigned Quick Add Input Simulator (Match Screenshot) -->
+                    <div class="border-neobrutalism bg-[#f5f7fb] p-6 neobrutalism-shadow flex flex-col gap-5 relative">
+                        <!-- Top Header Row -->
+                        <div class="flex justify-between items-start">
+                            <div class="flex flex-col gap-1">
+                                <h4 class="font-black text-xl text-on-surface tracking-tight leading-tight">Mau catat apa?</h4>
+                                <p class="text-xs font-bold text-on-surface opacity-75">Tinggal ketik, Sangoo yang rapiin!</p>
+                            </div>
+                            <!-- Peach Smiley Avatar card -->
+                            <div class="w-12 h-12 bg-[#ffd1c4] border-2 border-black rounded-[14px] shadow-[2px_2px_0px_#000] flex items-center justify-center text-xl select-none font-sans font-black">
+                                ☻
+                            </div>
                         </div>
-                        <p class="font-medium text-sm text-on-surface opacity-90">
-                            Coba ketik nominal dan deskripsi jajanmu (Contoh: <code class="bg-white border border-black px-1 font-bold">20k kopi susu</code> atau <code class="bg-white border border-black px-1 font-bold">50rb tiket bioskop</code>) lalu tekan tombol Catat!
-                        </p>
-                        <div class="flex gap-2">
-                            <input type="text" id="sim-input" placeholder="Tulis jajanmu disini..." class="flex-1 bg-white border-2 border-black p-3 font-bold text-on-surface focus:outline-none focus:bg-tertiary-fixed placeholder:text-on-surface-variant/60 outline-none" style="border-radius: 0px;" />
-                            <button onclick="handleSimulatorAdd()" class="bg-white text-on-surface border-neobrutalism-thin hover:bg-on-surface hover:text-white px-6 font-black uppercase neobrutalism-press-sm">
-                                Catat!
+
+                        <!-- Sparkles Input Bar -->
+                        <div class="relative flex items-center bg-white border-2 border-black rounded-2xl px-4 py-3.5 shadow-[2px_2px_0px_#000] focus-within:shadow-[4px_4px_0px_#000] transition-all">
+                            <!-- Blue Sparkles Material Icon -->
+                            <span class="material-symbols-outlined text-blue-600 font-black mr-2 select-none" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            <input type="text" id="sim-input" placeholder="25rb makan" class="flex-1 bg-transparent font-bold text-on-surface placeholder:text-slate-400 focus:outline-none outline-none border-none p-0 focus:ring-0 text-sm" />
+                        </div>
+
+                        <!-- Horizontal Categories Scroll -->
+                        <div class="flex gap-3 overflow-x-auto pb-3 pt-1 px-1 scrollbar-thin snap-x">
+                            
+                            <!-- Pindah Buku (Default Active) -->
+                            <div onclick="selectCategory(this, 'Pindah Buku', '50rb pindah buku')" class="sim-category-btn flex flex-col items-center gap-1.5 cursor-pointer flex-shrink-0 select-none group active-category -translate-y-1">
+                                <div class="w-12 h-12 bg-[#a7f3d0] border-2 border-black rounded-[14px] shadow-[4px_4px_0px_#000] flex items-center justify-center transition-all">
+                                    <span class="material-symbols-outlined text-xl text-on-surface font-black">receipt_long</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase text-on-surface opacity-90">Pindah...</span>
+                            </div>
+
+                            <!-- Transfer -->
+                            <div onclick="selectCategory(this, 'Transfer', '100rb transfer Hanifa')" class="sim-category-btn flex flex-col items-center gap-1.5 cursor-pointer flex-shrink-0 select-none group">
+                                <div class="w-12 h-12 bg-[#fdf4db] border-2 border-black rounded-[14px] shadow-[2px_2px_0px_#000] flex items-center justify-center transition-all">
+                                    <span class="material-symbols-outlined text-xl text-on-surface font-black">payments</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase text-on-surface opacity-90">Transfer</span>
+                            </div>
+
+                            <!-- Telkom -->
+                            <div onclick="selectCategory(this, 'Telkom', '45rb tagihan internet')" class="sim-category-btn flex flex-col items-center gap-1.5 cursor-pointer flex-shrink-0 select-none group">
+                                <div class="w-12 h-12 bg-[#ebe4f9] border-2 border-black rounded-[14px] shadow-[2px_2px_0px_#000] flex items-center justify-center transition-all">
+                                    <span class="material-symbols-outlined text-xl text-on-surface font-black">movie</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase text-on-surface opacity-90">Telkom</span>
+                            </div>
+
+                            <!-- Sedekah -->
+                            <div onclick="selectCategory(this, 'Sedekah', '10k sedekah jumat')" class="sim-category-btn flex flex-col items-center gap-1.5 cursor-pointer flex-shrink-0 select-none group">
+                                <div class="w-12 h-12 bg-[#e2f1eb] border-2 border-black rounded-[14px] shadow-[2px_2px_0px_#000] flex items-center justify-center transition-all">
+                                    <span class="material-symbols-outlined text-xl text-on-surface font-black">local_florist</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase text-on-surface opacity-90">Sedek...</span>
+                            </div>
+
+                            <!-- Game -->
+                            <div onclick="selectCategory(this, 'Game', '20rb beli koin game')" class="sim-category-btn flex flex-col items-center gap-1.5 cursor-pointer flex-shrink-0 select-none group">
+                                <div class="w-12 h-12 bg-[#fceadc] border-2 border-black rounded-[14px] shadow-[2px_2px_0px_#000] flex items-center justify-center transition-all">
+                                    <span class="material-symbols-outlined text-xl text-on-surface font-black">pets</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase text-on-surface opacity-90">Game</span>
+                            </div>
+
+                            <!-- Makanan -->
+                            <div onclick="selectCategory(this, 'Makanan', '25rb makan')" class="sim-category-btn flex flex-col items-center gap-1.5 cursor-pointer flex-shrink-0 select-none group">
+                                <div class="w-12 h-12 bg-[#faeed6] border-2 border-black rounded-[14px] shadow-[2px_2px_0px_#000] flex items-center justify-center transition-all">
+                                    <span class="material-symbols-outlined text-xl text-on-surface font-black">restaurant</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase text-on-surface opacity-90">Maka...</span>
+                            </div>
+
+                        </div>
+
+                        <!-- Full Width Catat Pengeluaran Button -->
+                        <button onclick="handleSimulatorAdd()" class="w-full bg-[#eef2f6] text-slate-700 border-2 border-black rounded-2xl py-3.5 font-black text-sm uppercase neobrutalism-press-sm flex items-center justify-center gap-2 shadow-[2px_2px_0px_#000]">
+                            <span class="material-symbols-outlined text-base font-black text-slate-500">receipt_long</span>
+                            Catat Pengeluaran
+                        </button>
+
+                        <!-- Bottom Split Actions -->
+                        <div class="grid grid-cols-2 gap-4 mt-1">
+                            <!-- Kirim Sangoo Button -->
+                            <button onclick="triggerKirimSangoo()" class="bg-[#ebdffc] text-[#581c87] border-2 border-black rounded-[14px] py-3.5 font-black text-xs uppercase tracking-wide neobrutalism-press-sm flex items-center justify-center gap-1.5 shadow-[2px_2px_0px_#000]">
+                                <span class="material-symbols-outlined text-sm font-black rotate-[-30deg]">send</span>
+                                Kirim Sangoo
                             </button>
-                        </div>
-                        <!-- Preset shortcuts for fast testing -->
-                        <div class="flex flex-wrap gap-2 items-center mt-1">
-                            <span class="text-xs font-black uppercase">Preset Cepat:</span>
-                            <button onclick="runPreset('15rb es teh')" class="bg-white text-xs border-neobrutalism-thin px-2.5 py-1 font-bold hover:bg-secondary-fixed">15rb es teh 🥤</button>
-                            <button onclick="runPreset('25k ramen')" class="bg-white text-xs border-neobrutalism-thin px-2.5 py-1 font-bold hover:bg-tertiary-fixed">25k ramen 🍜</button>
-                            <button onclick="runPreset('8k parkir')" class="bg-white text-xs border-neobrutalism-thin px-2.5 py-1 font-bold hover:bg-primary-container">8k parkir 🚗</button>
+                            <!-- Minta Sangoo Button -->
+                            <button onclick="triggerMintaSangoo()" class="bg-white text-slate-800 border-2 border-black rounded-[14px] py-3.5 font-black text-xs uppercase tracking-wide neobrutalism-press-sm flex items-center justify-center gap-1.5 shadow-[2px_2px_0px_#000]">
+                                <span class="material-symbols-outlined text-sm font-black">payments</span>
+                                Minta Sangoo
+                            </button>
                         </div>
                     </div>
 
@@ -1877,6 +1948,40 @@ Hemat Pangkal Kaya, Sangoo Pangkal Bahagia!
         function triggerPhonePDFDownload() {
             createConfetti(80);
             showToast("📥 Laporan PDF Sangoo Mei 2026 berhasil diunduh ke ponselmu!");
+        }
+
+
+        // --- REDESIGNED QUICK ADD SIMULATOR HANDLERS ---
+        function selectCategory(el, categoryName, presetText) {
+            document.getElementById('sim-input').value = presetText;
+            
+            // Toggle active classes
+            document.querySelectorAll('.sim-category-btn').forEach(btn => {
+                btn.classList.remove('active-category', '-translate-y-1');
+                const innerCard = btn.querySelector('div');
+                innerCard.classList.remove('shadow-[4px_4px_0px_#000]');
+                innerCard.classList.add('shadow-[2px_2px_0px_#000]');
+            });
+            
+            el.classList.add('active-category', '-translate-y-1');
+            const innerCard = el.querySelector('div');
+            innerCard.classList.remove('shadow-[2px_2px_0px_#000]');
+            innerCard.classList.add('shadow-[4px_4px_0px_#000]');
+            
+            showToast(`🏷️ Kategori ${categoryName} dipilih: "${presetText}"`);
+            createInputBurst();
+        }
+
+        function triggerKirimSangoo() {
+            const val = document.getElementById('sim-input').value || "25rb makan";
+            createConfetti(60);
+            showToast(`✈️ Kirim Sangoo sebesar "${val}" berhasil dikirim ke sahabatmu!`);
+        }
+
+        function triggerMintaSangoo() {
+            const val = document.getElementById('sim-input').value || "25rb makan";
+            createConfetti(60);
+            showToast(`💸 Permintaan Sangoo sebesar "${val}" telah dikirim ke orang tuamu!`);
         }
 
 
